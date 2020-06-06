@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+<meta name="referrer" content="no-referrer" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/find-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/find-16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-center-atom.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"zihaofu.github.io","root":"/","scheme":"Gemini","version":"8.0.0-rc.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="牛客网小红书2020校招Android方向笔试题卷三记录了一些解题思路及实现代码。整体难度偏易。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="小红书2020校招Android方向笔试题卷三">
+<meta property="og:url" content="https://zihaofu.github.io/2020/06/06/%E5%B0%8F%E7%BA%A2%E4%B9%A62020%E5%8D%B7%E4%B8%89/index.html">
+<meta property="og:site_name" content="不存在的博客">
+<meta property="og:description" content="牛客网小红书2020校招Android方向笔试题卷三记录了一些解题思路及实现代码。整体难度偏易。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-06-05T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-06-06T03:08:49.497Z">
+<meta property="article:author" content="Zihao Fu">
+<meta property="article:tag" content="Java">
+<meta property="article:tag" content="数据结构与算法">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://zihaofu.github.io/2020/06/06/%E5%B0%8F%E7%BA%A2%E4%B9%A62020%E5%8D%B7%E4%B8%89/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>小红书2020校招Android方向笔试题卷三 | 不存在的博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+        <span class="toggle-line toggle-line-first"></span>
+        <span class="toggle-line toggle-line-middle"></span>
+        <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">不存在的博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">一个不存在的博客</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://zihaofu.github.io/2020/06/06/%E5%B0%8F%E7%BA%A2%E4%B9%A62020%E5%8D%B7%E4%B8%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/while.gif">
+      <meta itemprop="name" content="Zihao Fu">
+      <meta itemprop="description" content="我们一路奋战，不是为了能改变世界，而是为了不让世界改变我们。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="不存在的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          小红书2020校招Android方向笔试题卷三
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-06-06 00:00:00 / 修改时间：11:08:49" itemprop="dateCreated datePublished" datetime="2020-06-06T00:00:00+08:00">2020-06-06</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">数据结构与算法</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p><a href="https://www.nowcoder.com/test/23567675/summary" target="_blank" rel="noopener">牛客网小红书2020校招Android方向笔试题卷三</a><br>记录了一些解题思路及实现代码。<br>整体难度偏易。</p>
+<a id="more"></a>
+
+<h2 id="笔记草稿"><a href="#笔记草稿" class="headerlink" title="笔记草稿"></a>笔记草稿</h2><p>薯队长写了一篇笔记草稿，请你帮忙输出最后内容。<br>1.输入字符包括，”(“  ,  “)”  和  “&lt;”和其他字符。<br>2.其他字符表示笔记内容。<br>3.()之间表示注释内容，任何字符都无效。  括号保证成对出现。<br>4.”&lt;”表示退格,  删去前面一个笔记内容字符。括号不受”&lt;”影响  。 </p>
+<h3 id="输入描述"><a href="#输入描述" class="headerlink" title="输入描述"></a>输入描述</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">输入一行字符串。长度&lt;=<span class="number">10000.</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="输出描述"><a href="#输出描述" class="headerlink" title="输出描述"></a>输出描述</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">输出一行字符串，表示最终的笔记内容。</span><br></pre></td></tr></table></figure>
+
+<h3 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">Corona</span><span class="params">(Trump)</span><span class="title">USA</span></span>&lt;&lt;&lt;Virus</span><br></pre></td></tr></table></figure>
+
+<h3 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h3><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">CoronaVirus</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>这道题很简单的根据读取不同的元素内容执行不同操作即可。由于括号成对出现，可以用一个整型值代表是否出现括号，当没有括号时才向StringBuilder中增加字符，有括号时略过，遇到一个’&lt;’就删去StringBuilder最后一位即可。</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        Scanner sc = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        String input = sc.nextLine();</span><br><span class="line">        <span class="keyword">char</span>[] arr = input.toCharArray();</span><br><span class="line">         </span><br><span class="line">        <span class="keyword">int</span> flag = <span class="number">0</span>;</span><br><span class="line">        StringBuilder sb = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">char</span> i : arr)&#123;.</span><br><span class="line">            <span class="comment">// 遇到正括号，flag++代表遇到括号了</span></span><br><span class="line">            <span class="keyword">if</span>(i == <span class="string">'('</span>)&#123;</span><br><span class="line">                flag++;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 遇到反括号，flag--代表结束了一个括号</span></span><br><span class="line">            <span class="keyword">if</span>(i == <span class="string">')'</span>)&#123;</span><br><span class="line">                flag--;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 如果flag不是0则代表依然处于括号内</span></span><br><span class="line">            <span class="keyword">if</span>(flag != <span class="number">0</span>) <span class="keyword">continue</span>;</span><br><span class="line">            <span class="comment">// 遇到&lt;符号，代表需要移除前一位</span></span><br><span class="line">            <span class="keyword">if</span>(i == <span class="string">'&lt;'</span>)&#123;</span><br><span class="line">                sb.deleteCharAt(sb.length()-<span class="number">1</span>);</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 上述情况都不满足代表是一个正常字符，可以插入</span></span><br><span class="line">            sb.append(i);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(sb.toString());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="笔记精选"><a href="#笔记精选" class="headerlink" title="笔记精选"></a>笔记精选</h2><p>薯队长写了n篇笔记，编号从1~n,每篇笔记都获得了不少点赞数。<br>薯队长想从中选出一些笔记，作一个精选集合。挑选的时候有两个规则：<br>1.不能出现连续编号的笔记。<br>2.总点赞总数最多<br>如果满足1，2条件有多种方案，挑选笔记总数最少的那种</p>
+<h3 id="输入描述-1"><a href="#输入描述-1" class="headerlink" title="输入描述"></a>输入描述</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入包含两行。第一行整数n表示多少篇笔记。 第二行n个整数分别表示n篇笔记的获得的点赞数。   </span><br><span class="line"> （<span class="number">0</span>&lt;n&lt;=<span class="number">1000</span>,    <span class="number">0</span>&lt;=点赞数&lt;=<span class="number">1000</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="输出描述-1"><a href="#输出描述-1" class="headerlink" title="输出描述"></a>输出描述</h3><figure class="highlight gml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输出两个整数<span class="symbol">x</span>,<span class="symbol">y</span>。空格分割。</span><br><span class="line"> <span class="symbol">x</span>表示总点赞数，<span class="symbol">y</span>表示挑选的笔记总数。</span><br></pre></td></tr></table></figure>
+
+<h3 id="输入-1"><a href="#输入-1" class="headerlink" title="输入"></a>输入</h3><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">4</span></span><br><span class="line"><span class="symbol">1 </span><span class="number">2</span> <span class="number">3</span> <span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="输出-1"><a href="#输出-1" class="headerlink" title="输出"></a>输出</h3><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">4 </span><span class="number">2</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a>思路</h3><p>实际上这道题与LeetCode上打家劫舍最简单的那一版是一样的。多了一个记录挑选笔记总数的部分。</p>
+<p>本题利用动态规划思想，根据动态规划的三大要素，</p>
+<p>第一步需要确定数组元素的含义，这个题中数组元素的含义就是点赞数达到最大。</p>
+<p>第二步找出数组元素之间的关系式。易知，对于当前元素，要么选择它，则dp[i] = arr[i] + dp[i-2]，不能与相邻的一起选择，又想要达到最大点赞数，就只能与上上个的最大值相加。要么不选择它，则dp[i] = dp[i-1]，不选择它，那么当前元素上的最大点赞数应该与上一位的最大点赞数相同。那么找到两者结果最大的那一个作为当前元素的结果即可为最大点赞数。</p>
+<p>第三步找出初始值，很容易知道，dp[1]的初始值就是它本身，因为没有前缀笔记本，可以作为初始值。</p>
+<h3 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        Scanner sc = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        <span class="keyword">int</span> nums = sc.nextInt();</span><br><span class="line">        <span class="keyword">int</span>[] dp = <span class="keyword">new</span> <span class="keyword">int</span>[nums+<span class="number">1</span>];</span><br><span class="line">        <span class="keyword">int</span>[] flag = <span class="keyword">new</span> <span class="keyword">int</span>[nums+<span class="number">1</span>]; <span class="comment">// 记录选择笔记本的数量</span></span><br><span class="line">        dp[<span class="number">1</span>] = sc.nextInt();</span><br><span class="line">        flag[<span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= nums; i++)&#123;</span><br><span class="line">            <span class="keyword">int</span> in = sc.nextInt();</span><br><span class="line">            dp[i] = Math.max(in + dp[i-<span class="number">2</span>], dp[i-<span class="number">1</span>]); <span class="comment">// 动态规划表达式，最大点赞数</span></span><br><span class="line">            <span class="comment">// 如果不选择当前笔记本</span></span><br><span class="line">            <span class="keyword">if</span>(dp[i] == dp[i-<span class="number">1</span>])&#123;</span><br><span class="line">                flag[i] = flag[i-<span class="number">1</span>]; <span class="comment">// 等于之前选择的笔记本数量</span></span><br><span class="line">            <span class="comment">// 如果选择了当前笔记本</span></span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                flag[i] = flag[i-<span class="number">2</span>]+<span class="number">1</span>; <span class="comment">// 在之前基础上加一</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(dp[nums] + <span class="string">" "</span> + flag[nums]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="倒卖战利品"><a href="#倒卖战利品" class="headerlink" title="倒卖战利品"></a>倒卖战利品</h2><p>在游戏中，击败魔物后，薯队长获得了N件宝物，接下来得把这些宝物卖给宝物回收员来赚点小钱。这个回收员有个坏毛病，每次卖给他一件宝 物后，之后他就看不上比这件宝物差的宝物了。在这个世界中，衡量宝物的好坏有两个维度，稀有度X和实用度H，回收员在回收一个宝物A 后，下一个宝物的稀有度和实用度都不能低于宝物A。那么薯队长如何制定售卖顺序，才能卖给回收员宝物总个数最多。</p>
+<h3 id="输入描述-2"><a href="#输入描述-2" class="headerlink" title="输入描述"></a>输入描述</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">第一行一个正整数N。 接下来N行。每行两个整数分别表示X和H </span><br><span class="line">X1 H1 X2 H2 … XN HN</span><br><span class="line">输入限制： 对于<span class="number">70</span>%的数据： </span><br><span class="line"><span class="number">0</span>&lt;N&lt;<span class="number">10</span>^<span class="number">4</span> </span><br><span class="line"><span class="number">0</span>&lt;Xi&lt;<span class="number">10</span>^<span class="number">6</span> </span><br><span class="line"><span class="number">0</span>&lt;Hi&lt;<span class="number">10</span>^<span class="number">6</span> </span><br><span class="line"><span class="number">100</span>%的数据：</span><br><span class="line"><span class="number">0</span>&lt;N&lt;<span class="number">10</span>^<span class="number">6</span></span><br><span class="line"><span class="number">0</span>&lt;Xi&lt;<span class="number">10</span>^<span class="number">6</span> </span><br><span class="line"><span class="number">0</span>&lt;Hi&lt;<span class="number">10</span>^<span class="number">6</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="输出描述-2"><a href="#输出描述-2" class="headerlink" title="输出描述"></a>输出描述</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">一个整数，表示最多可以卖出的宝物数</span><br></pre></td></tr></table></figure>
+
+<h3 id="输入-2"><a href="#输入-2" class="headerlink" title="输入"></a>输入</h3><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">4</span></span><br><span class="line"><span class="symbol">3 </span><span class="number">2</span></span><br><span class="line"><span class="symbol">1 </span><span class="number">1</span> </span><br><span class="line"><span class="symbol">1 </span><span class="number">3</span></span><br><span class="line"><span class="symbol">1 </span><span class="number">2</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="输出-2"><a href="#输出-2" class="headerlink" title="输出"></a>输出</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">3</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="思路-2"><a href="#思路-2" class="headerlink" title="思路"></a>思路</h3><p>这道题利用了单调栈的思想，首先将所有数据读取到一个二维整型数组中，然后对整型数组进行排序，依次对第一列X和第二列H进行排序，此时X列应为有序递增的，那么就只需要确定H列即可。首先从小到大输入H，直到新的H比最大的那一位小，这证明这一位需要取代之前的某一位才可以继续向后取值。通过二分查找找到已读取H数组中第一位大于新H值的那一位，将这一位的值替换为新值，然后继续向后输入新H值。反复这个过程，直到所有H都被插入过。此时H结果数组的长度就是最终的结果。</p>
+<p>例子</p>
+<p>(3,2), (1,1), (1,3), (1,2)</p>
+<p>排序</p>
+<p>(1,1), (1,2), (1,3), (3,2)</p>
+<p>忽略X位，仅看H位，依次输入结果数组</p>
+<p>1，2，3</p>
+<p>最后一个2小于数组中最后一位3，则找到第一个不大于新H值的值，即数组中的第一位2，用新H替换掉这一位就可以继续输入后续的新H。</p>
+<p>全部输入完成后结果数组的长度就是最终结果。</p>
+<h3 id="代码-2"><a href="#代码-2" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        Scanner sc = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        <span class="keyword">while</span> (sc.hasNext())&#123;</span><br><span class="line">            <span class="keyword">int</span> nums = sc.nextInt();</span><br><span class="line">            </span><br><span class="line">            <span class="comment">// 读取数据，保存至二维数组</span></span><br><span class="line">            <span class="keyword">int</span>[][] baobei = <span class="keyword">new</span> <span class="keyword">int</span>[nums][<span class="number">2</span>];</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i&lt;nums; i++)&#123;</span><br><span class="line">                <span class="keyword">int</span> x = sc.nextInt();</span><br><span class="line">                <span class="keyword">int</span> h = sc.nextInt();</span><br><span class="line">                baobei[i][<span class="number">0</span>] = x;</span><br><span class="line">                baobei[i][<span class="number">1</span>] = h;</span><br><span class="line">            &#125;</span><br><span class="line">        </span><br><span class="line">            <span class="comment">// 自定义排序，排序第一列，并根据第一列排序第二列</span></span><br><span class="line">            Arrays.sort(baobei, <span class="keyword">new</span> Comparator&lt;<span class="keyword">int</span>[]&gt;()&#123;</span><br><span class="line">                <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(<span class="keyword">int</span>[] o1, <span class="keyword">int</span>[] o2)</span></span>&#123;</span><br><span class="line">                    <span class="keyword">if</span>(o1[<span class="number">0</span>] == o2[<span class="number">0</span>]) <span class="keyword">return</span> o1[<span class="number">1</span>] - o2[<span class="number">1</span>];</span><br><span class="line">                    <span class="keyword">return</span> o1[<span class="number">0</span>] - o2[<span class="number">0</span>];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line">            </span><br><span class="line">            ArrayList&lt;Integer&gt; stack = <span class="keyword">new</span> ArrayList&lt;&gt;(); <span class="comment">// 结果List集合</span></span><br><span class="line">            <span class="comment">// 将所有H值依次处理到List集合中</span></span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums; i++)&#123;</span><br><span class="line">                <span class="comment">// 如果单调栈上是空的，或者新的H值大于最后一位（最大的）H值，直接插入到栈的尾端</span></span><br><span class="line">                <span class="keyword">if</span>(stack.isEmpty() || baobei[i][<span class="number">1</span>] &gt; stack.get(stack.size()-<span class="number">1</span>))&#123;</span><br><span class="line">                    stack.add(baobei[i][<span class="number">1</span>]);</span><br><span class="line">                <span class="comment">// 如果新的H值小于等于最后一位（最大的）H值，则需要找到第一个大于等于新H的位</span></span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    <span class="comment">// 二分查找，找到第一个大于等于新H的位</span></span><br><span class="line">                    <span class="keyword">int</span> l = <span class="number">0</span>;</span><br><span class="line">                    <span class="keyword">int</span> r = stack.size();</span><br><span class="line">                    <span class="keyword">while</span>(l&lt;r)&#123;</span><br><span class="line">                        <span class="keyword">int</span> m = (l+r)/<span class="number">2</span>;</span><br><span class="line">                        <span class="keyword">if</span>(stack.get(m) &gt;= baobei[i][<span class="number">1</span>]) r = m;</span><br><span class="line">                        <span class="keyword">else</span> l = m + <span class="number">1</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                    stack.set(l, baobei[i][<span class="number">1</span>]); <span class="comment">// 将找到的这一位替换为新H值</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.print(stack.size()); <span class="comment">// 打印结果</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="延申"><a href="#延申" class="headerlink" title="延申"></a>延申</h2><h3 id="动态规划三大要素"><a href="#动态规划三大要素" class="headerlink" title="动态规划三大要素"></a>动态规划三大要素</h3><ol>
+<li>定义数组元素的含义. 由于会使用一个数组来保存历史数据, 假设使用一个一维数组dp[], 有一个很重要的点就是规定这个数组元素的含义, 例如dp[i]是什么意思.</li>
+<li>找出数组元素之间的关系式, 动态规划类似归纳法, 计算dp[n]时可以利用dp[n-1], dp[n-2], …, dp[1]来推出dp[n]的, 即利用历史数据来推断出新的元素值, 所以需要找到数组元素之间的关心式, 例如dp[n] = dp[n-1] + dp[n-2], 就是一种关系式. 这一步也是最难的一步.</li>
+<li>找出初始值. 如同数学归纳法, 虽然知道了数组元素间的关系式, 如 dp[n] = dp[n-1] + dp[n-2], 则可以通过dp[n-1] 和 dp[n-2]计算dp[n], 但是需要知道初始值, 否则就会一直推下去. 例如dp[3] = dp[2] + dp[1]. 而dp[2] 和 dp[1]无法继续分解, 所以必须可以直接获取dp[2]和dp[1]的值, 这就是初始值.</li>
+</ol>
+<p>获得了初始值, 并且拥有了数组元素之间的关系式, 就可以得到dp[n]的值了. dp[n]的含义由自己定义, 想要求什么就可以定义成什么.</p>
+<p>需要注意对初始值的严谨设置, 需要根据经验去进行判断.</p>
+<p>90%的字符串问题可以使用动态规划解决, 且90%为二维数组.</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>[单调栈解题三]<a href="https://blog.csdn.net/Cyan1956/article/details/106577339/" target="_blank" rel="noopener">https://blog.csdn.net/Cyan1956/article/details/106577339/</a></p>
+
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Zihao Fu
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://zihaofu.github.io/2020/06/06/%E5%B0%8F%E7%BA%A2%E4%B9%A62020%E5%8D%B7%E4%B8%89/" title="小红书2020校招Android方向笔试题卷三">https://zihaofu.github.io/2020/06/06/小红书2020卷三/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Java/" rel="tag"># Java</a>
+              <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" rel="tag"># 数据结构与算法</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/06/03/%E5%8D%81%E5%A4%A7%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95Part1/" rel="prev" title="十大排序算法之冒泡排序，选择排序，插入排序">
+      <i class="fa fa-chevron-left"></i> 十大排序算法之冒泡排序，选择排序，插入排序
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#笔记草稿"><span class="nav-number">1.</span> <span class="nav-text">笔记草稿</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#输入描述"><span class="nav-number">1.1.</span> <span class="nav-text">输入描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输出描述"><span class="nav-number">1.2.</span> <span class="nav-text">输出描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输入"><span class="nav-number">1.3.</span> <span class="nav-text">输入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输出"><span class="nav-number">1.4.</span> <span class="nav-text">输出</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#思路"><span class="nav-number">1.5.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码"><span class="nav-number">1.6.</span> <span class="nav-text">代码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#笔记精选"><span class="nav-number">2.</span> <span class="nav-text">笔记精选</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#输入描述-1"><span class="nav-number">2.1.</span> <span class="nav-text">输入描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输出描述-1"><span class="nav-number">2.2.</span> <span class="nav-text">输出描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输入-1"><span class="nav-number">2.3.</span> <span class="nav-text">输入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输出-1"><span class="nav-number">2.4.</span> <span class="nav-text">输出</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#思路-1"><span class="nav-number">2.5.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码-1"><span class="nav-number">2.6.</span> <span class="nav-text">代码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#倒卖战利品"><span class="nav-number">3.</span> <span class="nav-text">倒卖战利品</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#输入描述-2"><span class="nav-number">3.1.</span> <span class="nav-text">输入描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输出描述-2"><span class="nav-number">3.2.</span> <span class="nav-text">输出描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输入-2"><span class="nav-number">3.3.</span> <span class="nav-text">输入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输出-2"><span class="nav-number">3.4.</span> <span class="nav-text">输出</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#思路-2"><span class="nav-number">3.5.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码-2"><span class="nav-number">3.6.</span> <span class="nav-text">代码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#延申"><span class="nav-number">4.</span> <span class="nav-text">延申</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#动态规划三大要素"><span class="nav-number">4.1.</span> <span class="nav-text">动态规划三大要素</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">5.</span> <span class="nav-text">参考</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Zihao Fu"
+      src="/uploads/while.gif">
+  <p class="site-author-name" itemprop="name">Zihao Fu</p>
+  <div class="site-description" itemprop="description">我们一路奋战，不是为了能改变世界，而是为了不让世界改变我们。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="mailto:fuzihao45@163.com" title="E-Mail → mailto:fuzihao45@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zihao Fu</span>
+</div>
+
+<span id="sitetime"></span>
+<script language=javascript>
+	function siteTime(){
+		window.setTimeout("siteTime()", 1000);
+		var seconds = 1000;
+		var minutes = seconds * 60;
+		var hours = minutes * 60;
+		var days = hours * 24;
+		var years = days * 365;
+		var today = new Date();
+		var todayYear = today.getFullYear();
+		var todayMonth = today.getMonth()+1;
+		var todayDate = today.getDate();
+		var todayHour = today.getHours();
+		var todayMinute = today.getMinutes();
+		var todaySecond = today.getSeconds();
+		/* 
+		Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+		year - 作为date对象的年份，为4位年份值
+		month - 0-11之间的整数，做为date对象的月份
+		day - 1-31之间的整数，做为date对象的天数
+		hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+		minutes - 0-59之间的整数，做为date对象的分钟数
+		seconds - 0-59之间的整数，做为date对象的秒数
+		microseconds - 0-999之间的整数，做为date对象的毫秒数
+        */
+		var t1 = Date.UTC(2020,05,30,00,00,00); //起始时间
+		var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+		var diff = t2-t1;
+		var diffYears = Math.floor(diff/years);
+		var diffDays = Math.floor((diff/days)-diffYears*365);
+		var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+		var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+		var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+		document.getElementById("sitetime").innerHTML=" 已运行"+/*diffYears+" 年 "+*/diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
+	}
+	siteTime();
+</script>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+  <script defer src="/lib/three/three.min.js"></script>
+    <script defer src="/lib/three/canvas_lines.min.js"></script>
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
