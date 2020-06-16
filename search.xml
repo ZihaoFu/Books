@@ -4,11 +4,36 @@
   
     
     <entry>
+      <title>拼多多客户端暑期实习二面</title>
+      <link href="/2020/06/16/%E6%8B%BC%E5%A4%9A%E5%A4%9A%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%AE%9E%E4%B9%A0%E4%BA%8C%E9%9D%A2/"/>
+      <url>/2020/06/16/%E6%8B%BC%E5%A4%9A%E5%A4%9A%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%AE%9E%E4%B9%A0%E4%BA%8C%E9%9D%A2/</url>
+      
+        <content type="html"><![CDATA[<p>简单记录一下面试过程，积累一下经验。</p><a id="more"></a><p>全程30分钟左右，因个人原因推迟了这次面试6天，感觉面试官没有特别上心，可能没有hc了？</p><h2 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h2><p>反转一个int整型，溢出返回0。</p><h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>介绍一下个人情况和项目情况吧。</p><p>项目中的难点？</p><p>遇到难点如何去学习和解决？</p><p>Java面向对象的特性有哪些？</p><p>Java容器介绍一下，说些比较熟悉的就可以了。</p><p>计算机网络中比较熟悉的协议说一下。</p><p>TCP的三次握手？</p><p>TCP三次握手如果客户端的最后一次握手的ACK报文没有传到服务端，会发生什么？</p><p>TCP三次握手最后一次是可以携带数据的，如果ACK报文没有到达服务端，而数据到达了服务端，会发生什么？</p><h2 id="反问"><a href="#反问" class="headerlink" title="反问"></a>反问</h2><p>您那边负责的业务是什么呢？<br>安卓音视频开发。</p><p>您对我后面的学习有什么建议吗？<br>深度上继续下功夫（但是也没有问我深度的知识…）。对于一些底层相关的可以多看看，针对某个方面深入学习。</p><p>拼多多实习生或应届生进入公司如何培训？如何快速适应业务？<br>专门的导师帮助，各部门情况不同。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 面试经验 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 面试经验 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>拼多多客户端暑期实习一面</title>
       <link href="/2020/06/09/%E6%8B%BC%E5%A4%9A%E5%A4%9A%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%AE%9E%E4%B9%A0%E4%B8%80%E9%9D%A2/"/>
       <url>/2020/06/09/%E6%8B%BC%E5%A4%9A%E5%A4%9A%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%AE%9E%E4%B9%A0%E4%B8%80%E9%9D%A2/</url>
       
-        <content type="html"><![CDATA[<p>简单记录一下面试过程，积累一下经验。</p><a id="more"></a><p>全程57分钟</p><h2 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h2><p>给一个链表，将链表排序后输出。不允许使用内置函数或者高级结构。</p><h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>介绍一下个人经历。</p><p>介绍一下项目经历。</p><p>安卓中如何添加一些依赖呢？（Gradle）</p><p>安卓的生命周期方法？</p><p>View的工作原理？流程是怎样的？调用了哪些方法？</p><p>安卓中如何添加/加载jar包？</p><p>安卓中如何将二进制流解析为图片并显示出来？</p><p>Handler消息机制介绍一下？</p><p>在一个普通线程中想要使用Looper需要做什么操作？</p><p>Looper在其他什么地方用过吗？举例说明。</p><p>事件分发机制介绍一下？</p><p>AsyncTask的原理（项目用）</p><p>进程间如何发送数据？</p><h2 id="反问"><a href="#反问" class="headerlink" title="反问"></a>反问</h2><p>您那边负责的业务是什么呢？</p><p>您对我后面的学习有什么建议吗？<br>多了解安卓底层的知识，去官网上看看源码，了解底层的架构。</p>]]></content>
+        <content type="html"><![CDATA[<p>简单记录一下面试过程，积累一下经验。</p><a id="more"></a><p>全程57分钟</p><h2 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h2><p>给一个链表，将链表排序后输出。不允许使用内置函数或者高级结构。</p><h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>介绍一下个人经历。</p><p>介绍一下项目经历。</p><p>安卓中如何添加一些依赖呢？（Gradle）</p><p>安卓的生命周期方法？</p><p>View的工作原理？流程是怎样的？调用了哪些方法？</p><p>安卓中如何添加/加载jar包？</p><p>安卓中如何将二进制流解析为图片并显示出来？</p><p>Handler消息机制介绍一下？</p><p>在一个普通线程中想要使用Looper需要做什么操作？</p><p>Looper在其他什么地方用过吗？举例说明。</p><p>事件分发机制介绍一下？</p><p>AsyncTask的原理（项目用）</p><p>进程间如何发送数据？</p><h2 id="反问"><a href="#反问" class="headerlink" title="反问"></a>反问</h2><p>您那边负责的业务是什么呢？<br>安卓底层SDK开发。</p><p>您对我后面的学习有什么建议吗？<br>多了解安卓底层的知识，去官网上看看源码，了解底层的架构。</p>]]></content>
       
       
       <categories>
@@ -147,7 +172,7 @@
       <link href="/2020/06/06/LeetCode-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%AE%80%E5%8D%95%E9%A2%98%E5%9E%8B/"/>
       <url>/2020/06/06/LeetCode-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%AE%80%E5%8D%95%E9%A2%98%E5%9E%8B/</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<p>����</p>]]></content>
       
       
       
