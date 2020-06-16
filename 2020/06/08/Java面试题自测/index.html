@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+<meta name="referrer" content="no-referrer" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/find-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/find-16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-center-atom.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"zihaofu.github.io","root":"/","scheme":"Gemini","version":"8.0.0-rc.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="Java常见面试题整理，对答案进行了隐藏处理，可用于自测。 本处面试题来自于JavaGuide，在文末参考处添加了链接，可前往其GitHub项目主页查看更多信息。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java面试题自测">
+<meta property="og:url" content="https://zihaofu.github.io/2020/06/08/Java%E9%9D%A2%E8%AF%95%E9%A2%98%E8%87%AA%E6%B5%8B/index.html">
+<meta property="og:site_name" content="不存在的博客">
+<meta property="og:description" content="Java常见面试题整理，对答案进行了隐藏处理，可用于自测。 本处面试题来自于JavaGuide，在文末参考处添加了链接，可前往其GitHub项目主页查看更多信息。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-06-07T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-06-11T14:59:02.735Z">
+<meta property="article:author" content="Zihao Fu">
+<meta property="article:tag" content="Java">
+<meta property="article:tag" content="面试题">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://zihaofu.github.io/2020/06/08/Java%E9%9D%A2%E8%AF%95%E9%A2%98%E8%87%AA%E6%B5%8B/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Java面试题自测 | 不存在的博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+        <span class="toggle-line toggle-line-first"></span>
+        <span class="toggle-line toggle-line-middle"></span>
+        <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">不存在的博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">一个不存在的博客</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://zihaofu.github.io/2020/06/08/Java%E9%9D%A2%E8%AF%95%E9%A2%98%E8%87%AA%E6%B5%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/while.gif">
+      <meta itemprop="name" content="Zihao Fu">
+      <meta itemprop="description" content="我们一路奋战，不是为了能改变世界，而是为了不让世界改变我们。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="不存在的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Java面试题自测
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-06-08 00:00:00" itemprop="dateCreated datePublished" datetime="2020-06-08T00:00:00+08:00">2020-06-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-06-11 22:59:02" itemprop="dateModified" datetime="2020-06-11T22:59:02+08:00">2020-06-11</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">面试题</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>Java常见面试题整理，对答案进行了隐藏处理，可用于自测。</p>
+<p>本处面试题来自于JavaGuide，在文末参考处添加了链接，可前往其GitHub项目主页查看更多信息。</p>
+<a id="more"></a>
+
+<h2 id="Java基础"><a href="#Java基础" class="headerlink" title="Java基础"></a>Java基础</h2><ol>
+<li><h3 id="面向对象和面向过程的区别"><a href="#面向对象和面向过程的区别" class="headerlink" title="面向对象和面向过程的区别?"></a><font color=red>面向对象和面向过程的区别?</font></h3></li>
+</ol>
+<details>
+  <summary>显示答案</summary>
+
+<blockquote>
+<p>面向过程就是将一个任务分解为多个步骤, 然后依次实现这些步骤以完成任务.<br>面向对象就是将任务划分为多个对象, 实现对象后可以通过组合小的对象来实现任务中的功能. 更有利于复用和维护应用.</p>
+<p>标答<br>面向过程性能相对更高(类的调用需要实例化, 开销大, 耗资源)<br>不易维护, 复用, 扩展.<br>面向对象则易维护, 易复用, 易扩展.<br>有封装, 继承, 多态的特性, 低耦合, 更加灵活, 故易维护.<br>但是效率相对会较低.</p>
+<p>可结合着回答.</p>
+</blockquote>
+</details>
+
+<ol start="2">
+<li><h3 id="那么可以说面向过程语言的性能高于面向对象语言吗"><a href="#那么可以说面向过程语言的性能高于面向对象语言吗" class="headerlink" title="那么可以说面向过程语言的性能高于面向对象语言吗?"></a>那么可以说面向过程语言的性能高于面向对象语言吗?</h3></li>
+</ol>
+<details>
+  <summary>显示答案</summary>
+
+<blockquote>
+<p>与面向对象或面向过程语言类型并无关系，而是因为面向过程语言通常会直接编译为机器码, 而面向对象的Java语言是半编译语言，最终执行代码并不能直接被CPU执行。</p>
+</blockquote>
+</details>
+
+<ol start="3">
+<li><h3 id="Java-语言的特点"><a href="#Java-语言的特点" class="headerlink" title="Java 语言的特点"></a><font color=red>Java 语言的特点</font></h3></li>
+</ol>
+<details>
+  <summary>显示答案</summary>
+
+<blockquote>
+<p>一次编译，到处运行。<br>是一种面向对象的语言，<br>拥有封装，继承和多态的特性。<br>简单易学，安全可靠，支持多线程，网络编程，并且解释和编译并存。</p>
+</blockquote>
+</details>
+
+<ol start="4">
+<li><h3 id="JVM-JDK-JRE最详细通俗的解答"><a href="#JVM-JDK-JRE最详细通俗的解答" class="headerlink" title="JVM, JDK, JRE最详细通俗的解答?"></a><font color=red>JVM, JDK, JRE最详细通俗的解答?</font></h3></li>
+</ol>
+<details>
+  <summary>显示答案</summary>
+
+<blockquote>
+<p>JVM是指 Java 虚拟机，Java程序通过编译器编译为字节码（.class）文件，JVM可以运行这些字节码在不同的硬件环境下执行出相同的结果，也是“一次编译，到处运行”的基础。<br>JDK是指 Java Development Kit，即Java开发配套工具。其中包含了JRE的所有内容，增加了编译器和一些工具，可以创建和编译程序。<br>JRE是指 Java Runtime Environment，即Java运行时环境。包含了运行一个Java程序所需的一切，如果仅使用Java程序而不做开发，那么使用JRE就足够了。</p>
+</blockquote>
+</details>
+
+<ol start="5">
+<li><h3 id="什么是字节码？源代码到运行的过程是怎样的？"><a href="#什么是字节码？源代码到运行的过程是怎样的？" class="headerlink" title="什么是字节码？源代码到运行的过程是怎样的？"></a>什么是字节码？源代码到运行的过程是怎样的？</h3></li>
+</ol>
+<details>
+  <summary>显示答案</summary>
+
+<blockquote>
+<p>字节码就是.class文件，不面向任何处理器，只面向虚拟机。通过字节码的这种方式，Java不但使效率得到了提升还保留了解释型语言可以移植的特性。</p>
+<p>首先源代码通过javac编译成字节码（.class)，输入虚拟机后，虚拟机会加载字节码文件，通过解释器逐行解释执行，但是这个方法效率低下，所以引入了JIT编译器，JIT编译器可以将热点代码进行编译，保存编译后的机器码，在下一次调用热点代码时可以直接使用已编译的机器码，所以执行次数越多效率就越高。<br>而在JDK 9时引入了AOT编译器，它会将字节码直接编译为机器码，避免JIT预热到热点代码的开销，但是会占用更大的空间，而且编译质量比不上JIT编译器。</p>
+</blockquote>
+</details>
+
+<ol start="5">
+<li><h3 id="OpenJDK-和-OracleJDK-的区别？"><a href="#OpenJDK-和-OracleJDK-的区别？" class="headerlink" title="OpenJDK 和 OracleJDK 的区别？"></a>OpenJDK 和 OracleJDK 的区别？</h3></li>
+</ol>
+<details>
+  <summary>显示答案</summary>
+
+<blockquote>
+<p>OpenJDK是完全开源的，而OracleJDK是OpenJDK的一个实现，并没有完全开源。<br>OpenJDK的性能和稳定性没有OracleJDK好。<br>OracleJDK对于已发布的版本不会提供长期的更新，需要手动的更新到最新版本来获得支持。</p>
+</blockquote>
+</details>
+
+<ol start="6">
+<li><h3 id="Java-和-C-的区别？"><a href="#Java-和-C-的区别？" class="headerlink" title="Java 和 C++ 的区别？"></a>Java 和 C++ 的区别？</h3></li>
+</ol>
+<details>
+  <summary>显示答案</summary>
+
+<blockquote>
+<p>都是面向对象的语言，即拥有封装，继承，多态的特性。<br>Java没有指针直接访问内存，所以更加安全。<br>Java有自动的垃圾回收机制，不需要手动管理内存。<br>Java中继承属于单继承，而C++可以多继承，但是Java中可以有多实现。<br>C++字符串和字符串数组的结尾会存在一个/o的结束符，而Java则没有这个结束符的概念。</p>
+</blockquote>
+</details>
+
+<ol start="7">
+<li><h3 id="为什么Java没有结束符的概念？"><a href="#为什么Java没有结束符的概念？" class="headerlink" title="为什么Java没有结束符的概念？"></a>为什么Java没有结束符的概念？</h3></li>
+</ol>
+<details>
+  <summary>显示答案</summary>
+
+<blockquote>
+<p>Java中一切都是对象，所以字符串和字符串数组都拥有一些方法或者属性可以确定其长度，就不需要再有一个结束符来浪费空间。</p>
+</blockquote>
+</details>
+
+<ol start="8">
+<li><h3 id="什么是Java的主类？应用程序和小程序的主类有什么不同？"><a href="#什么是Java的主类？应用程序和小程序的主类有什么不同？" class="headerlink" title="什么是Java的主类？应用程序和小程序的主类有什么不同？"></a>什么是Java的主类？应用程序和小程序的主类有什么不同？</h3></li>
+</ol>
+<details>
+  <summary>显示答案</summary>
+
+<blockquote>
+<p>一个应用程序只能拥有一个主类，主类是Java程序的入口。<br>应用程序的主类是一个包含main()方法的类，而小程序的主类是继承自JApplet或者Applet的子类。<br>应用程序的主类可以不是public的，而小程序的主类必须是public。</p>
+</blockquote>
+</details>
+
+<ol start="9">
+<li><h3 id="Java应用程序和小程序之间的差别是什么？"><a href="#Java应用程序和小程序之间的差别是什么？" class="headerlink" title="Java应用程序和小程序之间的差别是什么？"></a>Java应用程序和小程序之间的差别是什么？</h3></li>
+</ol>
+<details>
+  <summary>显示答案</summary>
+
+<blockquote>
+<p>应用程序从主线程启动（main()方法启动）。<br>小程序是嵌入到浏览器中运行的（init()或run()方法）。</p>
+</blockquote>
+</details>
+
+<ol start="10">
+<li><h3 id="字符型常量Character和字符串常量String的区别是什么？"><a href="#字符型常量Character和字符串常量String的区别是什么？" class="headerlink" title="字符型常量Character和字符串常量String的区别是什么？"></a><font color=red>字符型常量Character和字符串常量String的区别是什么？</font></h3></li>
+</ol>
+<details>
+  <summary>显示答案</summary>
+
+<blockquote>
+<p>从形式上看，字符型常量是单引号包裹的，而字符串常量是双引号包裹的。<br>从含义上看，字符型常量是整型值（ASCII码），而字符串常量是地址值（字符串在内存中的地址）。<br>从大小上看，字符型常量是占用两个字节的内存，而字符串常量是占用不定长度的内存。</p>
+</blockquote>
+</details>
+
+<ol start="11">
+<li><h3 id="Java中各个基本类型的大小和包装类？"><a href="#Java中各个基本类型的大小和包装类？" class="headerlink" title="Java中各个基本类型的大小和包装类？"></a><font color=red>Java中各个基本类型的大小和包装类？</font></h3></li>
+</ol>
+<details>
+  <summary>显示答案</summary>
+
+<blockquote>
+<p>Java的基本类型共有8种。</p>
+<table>
+<thead>
+<tr>
+<th>基本数据类型</th>
+<th>包装型</th>
+<th>大小</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>byte</td>
+<td>Byte</td>
+<td>-128 ~ 127</td>
+</tr>
+<tr>
+<td>char</td>
+<td>Character</td>
+<td>unicode 0 ~ unicode $2^{16}-1$</td>
+</tr>
+<tr>
+<td>short</td>
+<td>Short</td>
+<td>-$2^{15}$ ~ $2^{15}-1$</td>
+</tr>
+<tr>
+<td>int</td>
+<td>Integer</td>
+<td>-$2^{31}$ ~ $2^{31}-1$</td>
+</tr>
+<tr>
+<td>long</td>
+<td>Long</td>
+<td>-$2^{63}$ ~ $2^{63}-1$</td>
+</tr>
+<tr>
+<td>float</td>
+<td>Float</td>
+<td>IEEE 754 ~ IEEE 754</td>
+</tr>
+<tr>
+<td>double</td>
+<td>Double</td>
+<td>IEEE 754 ~ IEEE 754</td>
+</tr>
+<tr>
+<td>boolean</td>
+<td>Boolean</td>
+<td>True / False</td>
+</tr>
+</tbody></table>
+</blockquote>
+</details>
+
+<ol start="12">
+<li><h3 id="构造函数是否可以被重写override？"><a href="#构造函数是否可以被重写override？" class="headerlink" title="构造函数是否可以被重写override？"></a>构造函数是否可以被重写override？</h3></li>
+</ol>
+<details>
+  <summary>显示答案</summary>
+
+<blockquote>
+<p>构造函数无法被重写，但是可以被重载，也就是一个类中可以有多个构造函数。</p>
+</blockquote>
+</details>
+
+<ol start="13">
+<li><h3 id="重载和重写的区别是什么？"><a href="#重载和重写的区别是什么？" class="headerlink" title="重载和重写的区别是什么？"></a><font color=red>重载和重写的区别是什么？</font></h3></li>
+</ol>
+<details>
+  <summary>显示答案</summary>
+
+<blockquote>
+<p>重写就是指子类可以对继承来的类进行修改或者增加新的逻辑，方法名和参数名称必须相同，返回值的范围应该小于等于父类的返回值范围，抛出的异常也应该小于等于父类，访问修饰符应该大于等于父类。（如果父类是private的，就无法重写）<br>重载就是指一个方法可以由多个同名的方法，参数，返回值和访问修饰符可以不同，编译器会匹配使用哪一个方法，如果无法匹配到方法就会产生编译时错误。</p>
+</blockquote>
+</details>
+
+<ol start="14">
+<li><h3 id="Java面向对象编程的三大特性是什么？"><a href="#Java面向对象编程的三大特性是什么？" class="headerlink" title="Java面向对象编程的三大特性是什么？"></a><font color=red>Java面向对象编程的三大特性是什么？</font></h3></li>
+</ol>
+<details>
+  <summary>显示答案</summary>
+
+<blockquote>
+<p>封装性，对内部的代码进行封装以保证内部逻辑不会暴露在外。<br>继承性，继承是一种类与类之间的关系，如果一个类继承了另一个类，那么可以直接继承使用父类的方法而不需要重新实现，提升了开发效率。<br>多态性，多态是指一个类中实现的方法，在另一个类中可以表现出不同的行为。多态的两个代表，重写和重载。</p>
+</blockquote>
+</details>
+
+<ol start="15">
+<li><h3 id="String，StringBuffer，StringBuilder的区别是什么？String为什么是不可变的？"><a href="#String，StringBuffer，StringBuilder的区别是什么？String为什么是不可变的？" class="headerlink" title="String，StringBuffer，StringBuilder的区别是什么？String为什么是不可变的？"></a><font color=red>String，StringBuffer，StringBuilder的区别是什么？String为什么是不可变的？</font></h3></li>
+</ol>
+<details>
+  <summary>显示答案</summary>
+
+<blockquote>
+<p>String即字符串常量，确定值后就无法更改，想要修改就需要新建一个String常量，然后将指针指向新的常量。适合对字符串进行少量操作的场景。<br>StringBuilder，可以修改字符串的值，线程不安全，所以适合在单线程下对字符串有大量操作的情况。<br>StringBuffer，可以修改字符串的值，线程安全，所以适合在多线程下对字符串有大量操作的情况。</p>
+<p>StringBuilder的速度优于StringBuffer大约10%~15%，但是线程不安全。</p>
+</blockquote>
+</details>
+
+<ol start="16">
+<li><h3 id="String不可变的原因？"><a href="#String不可变的原因？" class="headerlink" title="String不可变的原因？"></a>String不可变的原因？</h3></li>
+</ol>
+<details>
+  <summary>显示答案</summary>
+
+<blockquote>
+<p>String类中使用一个被final修饰的字符数组保存字符串（Java 9 之后改用byte[]而不是char[]），而StringBuilder和StringBuffer都没有使用final修饰，所以是可变的。</p>
+</blockquote>
+</details>
+
+<ol start="17">
+<li><h3 id="什么是自动装箱和拆箱？"><a href="#什么是自动装箱和拆箱？" class="headerlink" title="什么是自动装箱和拆箱？"></a><font color=red>什么是自动装箱和拆箱？</font></h3></li>
+</ol>
+<details>
+  <summary>显示答案</summary>
+
+<blockquote>
+<p>自动装箱就是指基本类型自动转换为其对应的包装类型，如int 自动装箱为 Integer 等同于自动调用了 Integer对象 = Integer.valueOf(int对象);<br>自动拆箱就是指包装类型自动转换为其对应的基本类型，如Integer 自动拆箱为 int 等同于自动调用了 int对象 = Integer对象.intValue();</p>
+<p>如果是Byte，Character，Short，Integer，Long这五种包装类型，当包装类型的值处于-128 ~ 127这个范围内时，会指向缓存中已存在的对象的引用（地址对比结果是相等的），如果不在这个范围内就会新创建一个包装类型对象（地址对比，结果不等）。<br>对于Float，Double这两种包装类型，由于一个范围内的浮点数量是无限的，所以无法创建一个缓存。所以从地址上进行对比，两个浮点数永远不可能相等。</p>
+<p>在进行包装类型比较时，==运算符的两个操作数都是包装类型的引用，就是比较这两个操作数是否指向同一个对象，而如果有一个操作数是表达式（包括算术运算），就会触发自动拆箱，变为比较数值。<br>而进行包装类型比较时，equals()方法不会进行类型的转换的工作。（不会触发自动装箱拆箱）</p>
+</blockquote>
+</details>
+
+<ol start="18">
+<li><h3 id="什么是静态变量，使用静态变量修饰意味着什么？"><a href="#什么是静态变量，使用静态变量修饰意味着什么？" class="headerlink" title="什么是静态变量，使用静态变量修饰意味着什么？"></a><font color=red>什么是静态变量，使用静态变量修饰意味着什么？</font></h3></li>
+</ol>
+<details>
+  <summary>显示答案</summary>
+
+<blockquote>
+<p>静态变量就是被static修饰的变量，不再属于某个对象，而是属于整个类。属于类就代表这个变量被所有对象共享。静态成员在类加载时就会被分配内存，可以使用类名直接访问（推荐），也可以实例化类对象后调用（不推荐，无意义）。<br>非静态成员属于类的对象，只有类的对象产生（创建类的实例）时才会分配内存，然后通过类的对象（实例）去访问。</p>
+</blockquote>
+</details>
+
+<ol start="19">
+<li><h3 id="在一个静态方法中调用一个非静态方法为什么是非法的？"><a href="#在一个静态方法中调用一个非静态方法为什么是非法的？" class="headerlink" title="在一个静态方法中调用一个非静态方法为什么是非法的？"></a><font color=red>在一个静态方法中调用一个非静态方法为什么是非法的？</font></h3></li>
+</ol>
+<details>
+  <summary>显示答案</summary>
+
+<blockquote>
+<p>因为静态方法属于类，在类创建时就会生成，而非静态方法此时还未生成，让一个已生成的方法调用还未生成的方法自然就会报错。</p>
+</blockquote>
+</details>
+
+<ol start="20">
+<li><h3 id="在Java中定义一个不做事也无参数的构造方法的作用？"><a href="#在Java中定义一个不做事也无参数的构造方法的作用？" class="headerlink" title="在Java中定义一个不做事也无参数的构造方法的作用？"></a>在Java中定义一个不做事也无参数的构造方法的作用？</h3></li>
+</ol>
+<details>
+  <summary>显示答案</summary>
+
+<blockquote>
+<p>Java程序执行子类构造方法前，如果没有用使用super()调用父类特定的构造方法，就会调用父类中的无参构造方法。<br>如果子类的构造方法没有指定父类中的构造方法，就会默认调用这个空的构造方法来初始化父类。如果父类没有这个无参构造方法，那么子类没有使用父类构造方法时会出现编译时错误。因为Java程序无法找到无参构造方法执行，解决方法就是在父类中增加一个无参构造方法。<br>可理解为，无参构造方法就是一个默认的构造方法，如果不使用默认的，或者有特定需求，那么子类就应该去指定一个父类构造方法。</p>
+</blockquote>
+</details>
+
+<ol start="21">
+<li><h3 id="import-java和javax有什么区别？"><a href="#import-java和javax有什么区别？" class="headerlink" title="import java和javax有什么区别？"></a>import java和javax有什么区别？</h3></li>
+</ol>
+<details>
+  <summary>显示答案</summary>
+
+<blockquote>
+<p>最初，JavaAPI必须的包是java开头的包，而javax是扩展的包。但是逐渐javax扩展为JavaAPI的组成部分，最终成为了标准API的一部分。<br>所以，java和javax并没有什么区别。</p>
+</blockquote>
+</details>
+
+<ol start="22">
+<li><h3 id="抽象和接口的区别是什么？"><a href="#抽象和接口的区别是什么？" class="headerlink" title="抽象和接口的区别是什么？"></a><font color=red>抽象和接口的区别是什么？</font></h3></li>
+</ol>
+<details>
+  <summary>显示答案</summary>
+
+<blockquote>
+<p>抽象类内部的成员变量和方法可以不是抽象的，而接口中的成员变量是static final的，方法必须是抽象的。（也可以是默认方法，默认方法可以有方法体）<br>接口默认的访问修饰符是public，抽象可以是public，protected，default的，但是不能是private的，因为这个访问修饰符会是子类无法重写父类方法。<br>抽象类是单继承的，而接口是多实现的。<br>抽象类是对根源的抽象，描述一个事物是什么。而接口是对行为的抽象，描述一个事物可以干什么。例如人要吃饭喝水，那么人就是一种抽象，吃饭喝水的行为可以是一种接口。</p>
+</blockquote>
+</details>
+
+<ol start="23">
+<li><h3 id="成员变量和局部变量的区别是什么？"><a href="#成员变量和局部变量的区别是什么？" class="headerlink" title="成员变量和局部变量的区别是什么？"></a><font color=red>成员变量和局部变量的区别是什么？</font></h3></li>
+</ol>
+<details>
+  <summary>显示答案</summary>
+
+<blockquote>
+<p>成员变量属于类，而局部变量属于方法。<br>成员变量可以被public，private，static修饰，而局部变量不可被这些修饰。<br>成员变量和局部变量都可以被final修饰。<br>如果成员变量被static修饰，就属于类。如果没有被static修饰就属于实例（类对象），对象存储于堆内存中。而局部变量存储于栈内存中。<br>成员变量属于类对象的一部分，随着类对象的创建而存在，局部变量随着方法的调用而存在和消失。<br>成员变量如果没有被赋予初值，就会自动以类型的默认值赋值（除了final修饰的变量外），而局部变量不会自动赋值。</p>
+</blockquote>
+</details>
+
+<ol start="24">
+<li><h3 id="创建一个对象使用什么关键字？对象实例和对象引用有什么不同？"><a href="#创建一个对象使用什么关键字？对象实例和对象引用有什么不同？" class="headerlink" title="创建一个对象使用什么关键字？对象实例和对象引用有什么不同？"></a>创建一个对象使用什么关键字？对象实例和对象引用有什么不同？</h3></li>
+</ol>
+<details>
+  <summary>显示答案</summary>
+
+<blockquote>
+<p>创建一个对象使用new关键字，可以用于创建对象实例。<br>对象的实例处于堆内存，而对象的引用指向对象的实例，被存处于栈内存上。<br>一个对象引用可以指向0个或者1个对象实例，而一个对象实例可以被多个对象引用指向。</p>
+</blockquote>
+</details>
+
+<ol start="25">
+<li><h3 id="什么是方法的返回值？返回值在类的方法里的作用是什么？"><a href="#什么是方法的返回值？返回值在类的方法里的作用是什么？" class="headerlink" title="什么是方法的返回值？返回值在类的方法里的作用是什么？"></a>什么是方法的返回值？返回值在类的方法里的作用是什么？</h3></li>
+</ol>
+<details>
+  <summary>显示答案</summary>
+
+<blockquote>
+<p>方法的返回值就是一个方法执行完成后的结果。返回值会被输出到调用这个方法的方法中被赋予给一个变量，进行进一步的运算。</p>
+<p>标答: 获取到的某个方法体中的代码执行后产生的结果(如果该方法可以产生结果). 作用是可以输出结果, 使其可以用于其他操作.</p>
+</blockquote>
+</details>
+
+<ol start="26">
+<li><h3 id="一个类的构造方法的作用是什么？如果一个类没有声明构造方法，这个程序可以正确执行吗？为什么？"><a href="#一个类的构造方法的作用是什么？如果一个类没有声明构造方法，这个程序可以正确执行吗？为什么？" class="headerlink" title="一个类的构造方法的作用是什么？如果一个类没有声明构造方法，这个程序可以正确执行吗？为什么？"></a>一个类的构造方法的作用是什么？如果一个类没有声明构造方法，这个程序可以正确执行吗？为什么？</h3></li>
+</ol>
+<details>
+  <summary>显示答案</summary>
+
+<blockquote>
+<p>构造方法的作用就是初始化一些变量，如果没有构造方法是可以执行的，比如像是无参构造方法类似于没有构造方法。</p>
+</blockquote>
+</details>
+
+<ol start="27">
+<li><h3 id="构造方法中有哪些特性？"><a href="#构造方法中有哪些特性？" class="headerlink" title="构造方法中有哪些特性？"></a>构造方法中有哪些特性？</h3></li>
+</ol>
+<details>
+  <summary>显示答案</summary>
+
+<blockquote>
+<p>构造方法的名字与类名相同。<br>无返回值也不能声明返回值。<br>在类实例化时自动调用。</p>
+</blockquote>
+</details>
+
+<ol start="28">
+<li><h3 id="静态方法和实例方法有什么不同？"><a href="#静态方法和实例方法有什么不同？" class="headerlink" title="静态方法和实例方法有什么不同？"></a>静态方法和实例方法有什么不同？</h3></li>
+</ol>
+<details>
+  <summary>显示答案</summary>
+
+<blockquote>
+<p>静态方法被static修饰，属于整个类，而不属于某个对象，可以直接通过类名进行调用，而不需要等待类被初始化后调用。静态方法可以调用静态成员变量和方法，但是不能调用非静态的成员变量和方法。<br>实例方法需要等待类被实例化后才可以被调用，需要通过实例化后的对象名去调用它。实例对象可以调用类中所有成员变量和方法。</p>
+</blockquote>
+</details>
+
+<ol start="29">
+<li><h3 id="对象的相等与执行他们的引用相等有什么不同？"><a href="#对象的相等与执行他们的引用相等有什么不同？" class="headerlink" title="对象的相等与执行他们的引用相等有什么不同？"></a>对象的相等与执行他们的引用相等有什么不同？</h3></li>
+</ol>
+<details>
+  <summary>显示答案</summary>
+
+<blockquote>
+<p>对象的相等是指对象的类型和内容相等，而引用的相等是指内存地址相等。</p>
+</blockquote>
+</details>
+
+<ol start="30">
+<li><h3 id="在调用子类的构造方法前会先调用父类没有参数的构造方法，其目的是？"><a href="#在调用子类的构造方法前会先调用父类没有参数的构造方法，其目的是？" class="headerlink" title="在调用子类的构造方法前会先调用父类没有参数的构造方法，其目的是？"></a>在调用子类的构造方法前会先调用父类没有参数的构造方法，其目的是？</h3></li>
+</ol>
+<details>
+  <summary>显示答案</summary>
+
+<blockquote>
+<p>利用父类的构造方法来协助子类进行初始化工作。</p>
+</blockquote>
+</details>
+
+<ol start="31">
+<li><h3 id="与equals的区别？"><a href="#与equals的区别？" class="headerlink" title="==与equals的区别？"></a><font color=red>==与equals的区别？</font></h3></li>
+</ol>
+<details>
+  <summary>显示答案</summary>
+
+<blockquote>
+<p>==用于对比两个对象的引用是否相等。基本数据类型比较的是值是否相等，而引用类型比较的是内存地址是否相等。<br>equals()默认（Object中）也是用于对比两个对象的引用是否相等，但是一些类中重写了equals()使其变为比较两个对象的内容，比如String类。</p>
+<p>延申，创建String对象时，虚拟机会先去常量池中查找是否有已存在的值与将要创建的String的内容相等的对象，如果存在就直接将其赋给新的String对象，不存在则在常量池中创建一个String对象。</p>
+</blockquote>
+</details>
+
+<ol start="32">
+<li><h3 id="hashCode与equals的作用？"><a href="#hashCode与equals的作用？" class="headerlink" title="hashCode与equals的作用？"></a><font color=red>hashCode与equals的作用？</font></h3></li>
+</ol>
+<details>
+  <summary>显示答案</summary>
+
+<blockquote>
+<p>hashCode()的作用是计算对象的散列值，并根据这个散列值得到索引。而equals()用于在HashMap中找到一个桶内的某个具体值。<br>hashCode()是Object中的一个方法，这意味着任何类都拥有这个方法，但是这个方法大部分情况下并不会起作用，正常使用时，equals()和hashCode()之间没有任何关系。<br>但是在使用哈希表结构的对象时，这两个方法才会互相产生作用。并且有几个特性：</p>
+<ol>
+<li>equals()相等时，hashCode()肯定相等。</li>
+<li>equals()不等时，hashCode()可能相等，也可能不等。</li>
+<li>hashCode()相等时，equals()不一定相等。此时就会发生哈希冲突。<br>所以一个哈希表中，如果equals()被重写了，那么hashCode()也需要被重写。如果没有重写，那么hashCode()会使用引用地址产生哈希码，因为hashCode()的目的就是产生独一无二的哈希值，这会导致两个对象比较的结果不等，即使他们本来是相等的。</li>
+</ol>
+</blockquote>
+</details>
+
+<ol start="33">
+<li><h3 id="为什么Java中只有值传递？"><a href="#为什么Java中只有值传递？" class="headerlink" title="为什么Java中只有值传递？"></a><font color=red>为什么Java中只有值传递？</font></h3></li>
+</ol>
+<details>
+  <summary>显示答案</summary>
+
+<blockquote>
+<p>首先理解什么是值传递，什么是引用传递。<br>值传递就是指在调用函数时将实际参数复制一份传递到函数中，这样在函数中如果对参数进行修改，将不会影响到实际参数。<br>引用传递是指在调用函数时将实际参数的地址直接传递到函数中，那么在函数中对参数所进行的修改将会影响到实际参数。</p>
+<p>而Java中不管是值对象还是引用对象都是值传递·，在其他方法里面改变引用类型的值肯定是通过引用改变的·，当传递引用对象的时候传递的是复制过的对象句柄(引用)，注意这个引用是复制过的，也就是说又在内存中复制了一份句柄，这时候有两个句柄是指向同一个对象的，所以你改变这个句柄对应空间的数据会影响外部的变量的，虽然是复制的但是引用指向的是同一个地址，当你把这个句柄指向其他对象的引用时并不会改变原对象，因为你拿到的句柄是复制过的引用。总结Java中的句柄(引用)是复制过的，所以说Java只有值传递。</p>
+</blockquote>
+</details>
+
+<ol start="34">
+<li><h3 id="简述线程，程序，进程的基本概念。它们之间的关系是什么？"><a href="#简述线程，程序，进程的基本概念。它们之间的关系是什么？" class="headerlink" title="简述线程，程序，进程的基本概念。它们之间的关系是什么？"></a><font color=red>简述线程，程序，进程的基本概念。它们之间的关系是什么？</font></h3></li>
+</ol>
+<details>
+  <summary>显示答案</summary>
+
+<blockquote>
+<p>线程，可以被视为轻量级进程，是一个比进程更小的执行单位，一个进程可以拥有多个线程，线程拥有线程私有的程序计数器，虚拟机栈，本地方法栈，同一进程下的线程共享Java堆和方法区资源。这就让线程切换的开销小于进程。所以可以使用线程来提高并发效率并且降低并发执行过程中的开销。</p>
+<p>程序，有指令和数据的代码，被存在磁盘或者其他数据存储设备上，即程序就是静态的代码。</p>
+<p>进程，程序执行一次的过程，是系统执行程序的基本单位，系统执行一个程序就是进程从创建，执行到销毁的过程。简单来说，一个进程就是一个运行中的程序，进程占有一些系统资源并且相互间独立。引入进程可以让多个程序并发执行，提高系统的资源利用率和吞吐量。</p>
+</blockquote>
+</details>
+
+<ol start="34">
+<li><h3 id="线程有哪些基本状态？"><a href="#线程有哪些基本状态？" class="headerlink" title="线程有哪些基本状态？"></a><font color=red>线程有哪些基本状态？</font></h3></li>
+</ol>
+<details>
+  <summary>显示答案</summary>
+
+<blockquote>
+<p>初始 new，线程被构建，但是还未调用start()方法。<br>运行 runnable，分为就绪ready和运行中running两个状态。<br>阻塞 blocked，线程被锁阻塞。<br>等待 waiting，线程调用了wait()进入等待状态，等待其他线程的通知或者中断。<br>超时等待 time waiting，线程调用了wait(long millis)或者sleep(long millis)，等待状态加上一个时间限制，超时自动返回。<br>终止 terminated，线程执行完毕。</p>
+<p>流程，线程被创建后处于初始 new 状态，调用start()方法后开始执行，此时处于runnable状态的ready状态。获得时间片后进入runnable的running状态。如果线程调用同步方法，想要获取锁又无法获取时，会进入阻塞 blocked状态，获取锁后返回运行状态。如果线程执行了wait()方法，线程进入等待waiting状态，等待其他线程的通知才可以返回到运行状态。如果线程执行了wait(long millis)或者sleep(long millis)，则进入有时间限制的等待状态time waiting，获得通知或者超过时间就会返回运行状态。线程执行完运行状态的run()方法后会进入终止 terminated状态。</p>
+</blockquote>
+</details>
+
+<ol start="35">
+<li><h3 id="关于final关键字的一些总结？"><a href="#关于final关键字的一些总结？" class="headerlink" title="关于final关键字的一些总结？"></a><font color=red>关于final关键字的一些总结？</font></h3></li>
+</ol>
+<details>
+  <summary>显示答案</summary>
+
+<blockquote>
+<p>final关键字修饰变量时，变量不可被更改。基本数据类型的变量赋值后无法更改值，引用类型的变量初始化后不可用指向另一个对象。</p>
+<p>final关键字修饰方法时，方法不可以被重写。</p>
+<p>final关键字修饰类时，类不可以被继承。</p>
+</blockquote>
+</details>
+
+<ol start="36">
+<li><h3 id="Java中的异常处理？"><a href="#Java中的异常处理？" class="headerlink" title="Java中的异常处理？"></a><font color=red>Java中的异常处理？</font></h3></li>
+</ol>
+<details>
+  <summary>显示答案</summary>
+
+<blockquote>
+<p>Java中所有异常的父类是Throwable，其下分为Error和Exception两个部分。</p>
+<p>Error，指程序自身无法解决的错误，一般是资源不足或者虚拟机出现错误等原因导致的。比如OutOfMemoryError与虚拟机错误。这种错误是不可查的，超出了程序控制和处理能力，并且大多数都是程序运行时不允许出现的状况。</p>
+<p>Exception，是程序本身可以解决的异常，可以分为Runtime Exception和其他Exception。</p>
+<p>Runtime Exception是指运行时异常，是运行时才会被检测出的异常，事前不会主动检查它，所以即使有问题也可以通过编译。有一些运算异常就属于运行时异常。通常可以通过try catch或者throws进行捕获，可以通过修改使其恢复正常。</p>
+<p>其他Exception是指除运行时异常外的异常，这种异常又被称为被检查异常，在编译阶段会被主动检查，如果出现问题无法通过编译。</p>
+</blockquote>
+</details>
+
+<ol start="37">
+<li><h3 id="Throwable类的常用方法？"><a href="#Throwable类的常用方法？" class="headerlink" title="Throwable类的常用方法？"></a>Throwable类的常用方法？</h3></li>
+</ol>
+<details>
+  <summary>显示答案</summary>
+
+<blockquote>
+<p>getMessage() 返回异常发生时的简要描述。</p>
+<p>toString() 返回异常发生时的详细信息。</p>
+<p>getLocalizedMessage() 返回异常对象的本地化信息，使用Throwable子类覆盖这个方法，可以生成本地化信息。如果子类未覆盖这个方法，那么这个方法返回的信息和getMessage()返回的相同。</p>
+<p>printStackTrace() 在控制台打印Throwable对象封装的异常信息。</p>
+</blockquote>
+</details>
+
+<ol start="38">
+<li><h3 id="异常处理总结"><a href="#异常处理总结" class="headerlink" title="异常处理总结"></a><font color=red>异常处理总结</font></h3></li>
+</ol>
+<details>
+  <summary>显示答案</summary>
+
+<blockquote>
+<p>使用try catch来捕获和处理异常，try后面可以接多个catch，如果没有catch，则一定存在一个finally。</p>
+<p>finally，不论是否捕获或者处理异常，finally都会被执行。如果 try / catch中存在return，那么 finally 会在执行 return 后，返回结果前执行。如果 try / catch和 finally 中都存在 return，则 try / catch返回值前会先执行 finally，finally的return返回值会覆盖掉try / catch的返回值。</p>
+<p>有四种情况 finally 不会被执行，</p>
+<ol>
+<li>finally的第一行执行出现了问题，如果出现在其他行，则 finally 依然可以被执行。</li>
+<li>使用了 System.exit(0) 来退出程序。</li>
+<li>程序所在的线程死亡了。</li>
+<li>关闭了CPU。</li>
+</ol>
+</blockquote>
+</details>
+
+<ol start="39">
+<li><h3 id="Java序列化中如果有字段不想要序列化怎么办？"><a href="#Java序列化中如果有字段不想要序列化怎么办？" class="headerlink" title="Java序列化中如果有字段不想要序列化怎么办？"></a><font color=red>Java序列化中如果有字段不想要序列化怎么办？</font></h3></li>
+</ol>
+<details>
+  <summary>显示答案</summary>
+
+<blockquote>
+<p>Java序列化一般使用Serializable进行序列化，如果遇到不想序列化的字段，则可以使用Transient来阻止对这个字段的序列化。<br>Transient与Serializable配套使用，只能用于修饰变量，而不能修饰方法和类。</p>
+</blockquote>
+</details>
+
+<ol start="40">
+<li><h3 id="获取键盘输入的两种方法？"><a href="#获取键盘输入的两种方法？" class="headerlink" title="获取键盘输入的两种方法？"></a><font color=red>获取键盘输入的两种方法？</font></h3></li>
+</ol>
+<details>
+  <summary>显示答案</summary>
+
+<blockquote>
+<p>通过 Scanner 获取键盘输入。<br>通过 BufferReader 获取键盘输入。</p>
+</blockquote>
+</details>
+
+<ol start="41">
+<li><h3 id="Java中IO流可被分为几种？"><a href="#Java中IO流可被分为几种？" class="headerlink" title="Java中IO流可被分为几种？"></a><font color=red>Java中IO流可被分为几种？</font></h3></li>
+</ol>
+<details>
+  <summary>显示答案</summary>
+
+<blockquote>
+<p>按流向分，可以分为输入流和输出流。<br>按操作单元分，可以分为字节流和字符流。字节流可以处理任何类型的对象，而字符流只可以处理字符类型的对象。字符流存在的意义在于字符处理比较麻烦，使用自带的字符流去处理可以更加高效和统一。<br>按功能角色分，可以分为节点流和处理流，节点流就是指从/向一个IO设备中读取/写入数据的流，而处理流是对一个已存在的流进行一个封装，通过封装后的流实现数据读写的功能，好处是只要是相同的处理流，程序可以采用相同的输入输出代码来访问不同的数据源。</p>
+<p>Java IO流有四大基类<br>用于字节流输入的 InputStream。<br>用于字节流输出的 OutputStream。<br>用于字符流输入的 Reader。<br>用于字符流输出的 Writer。<br>所有 Java IO 流都是从这四个基类派生出的。</p>
+</blockquote>
+</details>
+
+<ol start="42">
+<li><h3 id="既然有了字节流，为什么还需要字符流呢？"><a href="#既然有了字节流，为什么还需要字符流呢？" class="headerlink" title="既然有了字节流，为什么还需要字符流呢？"></a><font color=red>既然有了字节流，为什么还需要字符流呢？</font></h3></li>
+</ol>
+<details>
+  <summary>显示答案</summary>
+
+<blockquote>
+<p>因为字符流这个过程比较耗时，而且如果没有处理好就会导致乱码，所以 IO 流提供了一个直接操作的接口，可以更方便的对字符进行流操作。<br>如果是音视频等媒体文件（不涉及字符的文件）最好使用字节流，而涉及到字符的文件就最好使用字符流。</p>
+</blockquote>
+</details>
+
+<ol start="43">
+<li><h3 id="BIO，NIO，AIO有什么区别？"><a href="#BIO，NIO，AIO有什么区别？" class="headerlink" title="BIO，NIO，AIO有什么区别？"></a><font color=red>BIO，NIO，AIO有什么区别？</font></h3></li>
+</ol>
+<details>
+  <summary>显示答案</summary>
+
+<blockquote>
+<p>BIO 就是 Blocking IO，即同步阻塞IO模式，数据的读写都必须阻塞在一个线程内等待完成，在活动连接数不高的情况下，这种模式表现的很不错，可以让每个连接专注于自己的IO，并且编程简单，不需要考虑其他的问题。但是面对大量的连接时，这种IO就会显得无能为力了。</p>
+<p>NIO 即 Non-Blocking IO，即同步非阻塞IO模式，提供了Channel，Buffer，Selector的抽象，支持面向缓冲的基于通道的IO操作方法。支持阻塞和非阻塞模式，阻塞模式的使用和传统的BIO一样，简单，但是性能和可靠性较差。非阻塞模式则相反。所以对于低负载低并发的情况可以使用同步阻塞IO，对于高负载，高并发的（网络）情况则使用非阻塞模式。</p>
+<p>AIO即Asynchronous IO，即异步非阻塞IO模式，基于事件和回调机制实现的。应用在操作后会直接返回，而不会阻塞在那里。后台任务完成后，操作系统会通知相应的线程进行后续操作。虽然  NIO 提供了非阻塞方法，但是 IO 行为依然是同步的。其业务线程依然在  IO 操作准备好时才得到通知，然后由这个线程自行进行 IO 操作，IO操作本身是同步的。</p>
+</blockquote>
+</details>
+
+<ol start="44">
+<li><h3 id="常见关键字有哪些？"><a href="#常见关键字有哪些？" class="headerlink" title="常见关键字有哪些？"></a><font color=red>常见关键字有哪些？</font></h3></li>
+</ol>
+<details>
+  <summary>显示答案</summary>
+
+<blockquote>
+<p>final<br>修饰变量时，如果变量类型是基本数据类型，则不可更改值。如果变量类型是引用类型，则初始化后不可以指向另一个对象。<br>修饰方法时，方法不可以被重写。<br>修饰类时，类不可以被继承。</p>
+<p>static<br>修饰成员变量和成员方法时（静态变量与静态方法），这些成员变量和方法会属于类，而不再属于某个对象，被整个类的所有对象共享。可以通过类名调用。注意，被static修饰的成员变量属于静态成员变量，静态变量会被存放在 Java 内存区域的方法区。而未被修饰的成员变量原本应该放在堆上。<br>修饰代码块时（静态代码块），静态代码块定义在类中方法外，静态代码块在非静态代码块之前执行，执行顺序是 静态代码块 -&gt;非静态代码块 -&gt; 构造方法。这个类不论创建多少对象，静态代码块都只执行一次。<br>修饰内部类（静态内部类），静态内部类和非静态内部类之间存在一个最大的区别。非静态内部类在编译完成后会隐含的保存一个执行外部类的引用，但是静态内部类却没有。没有这个引用就意味着：它的创建不需要依赖外部类的创建。它不能使用任何外部类的非static成员变量和方法。(可以达到延迟加载和线程安全的效果)<br>静态导包（导入类中的静态资源，是1.5后的新特性）， 格式是import static，可以指定导入某个类中的指定静态资源，而且不需要使用类名调用类中的静态成员，可以直接使用类中静态成员变量和静态成员方法。</p>
+<p>有一个原则，方法体中的引用变量和基本类型的变量都在栈上，其他都在堆上。类的成员变量自然就在堆上，而方法的基本类型变量和引用类型的对象在堆中，而指针在栈上。</p>
+<p>this<br>用于引用类的当前实例，使不使用这个关键字并不影响，但是可以使代码变得更加易读易懂。</p>
+<p>super<br>子类访问父类的变量和方法。</p>
+<p>延申</p>
+<p>构造器中使用super()调用父类中其他构造方法时，语句必须处于构造器首行，否则报错。this调用本类中其他构造方法时也放在首行。</p>
+<p>this，super不能用在 static 方法中，这是因为被 static 修饰的成员就属于类了，被类中所有对象共享。而 this 代表对本类对象的引用，指向本类对象，而 super 代表对父类对象的引用，指向父类对象，所以 this 和 super 都属于对象的范畴，而 static 属于类的范畴。</p>
+<p>方法区如 Java堆一样，是各线程共享的内存区域，用于存储已被虚拟机加载的类信息，常量，静态变量，即时编译器编译后的代码等数据。方法区常被称为永久代，本质上并不等价，HotSpot使用永久代实现方法区，让垃圾收集器可以像管理 Java堆一样管理这部分内存。</p>
+<p>如果方法执行的操作不依赖其类的各个变量和方法，则可将其设为静态，这会使程序占用的空间更小。否则, 应设为非静态的。</p>
+</blockquote>
+</details>
+
+<ol start="45">
+<li><h3 id="静态方法和非静态方法（实例方法）的对比？"><a href="#静态方法和非静态方法（实例方法）的对比？" class="headerlink" title="静态方法和非静态方法（实例方法）的对比？"></a><font color=red>静态方法和非静态方法（实例方法）的对比？</font></h3></li>
+</ol>
+<details>
+  <summary>显示答案</summary>
+
+<blockquote>
+<p>静态方法不需要实例化类对象就可以通过类名调用，而非静态方法必须实例化类对象，在通过类对象调用。</p>
+<p>静态方法访问本类的成员时，只能访问静态成员（静态成员变量和静态成员方法），而无法访问非静态成员。非静态方法就没有这个限制。</p>
+</blockquote>
+</details>
+
+<ol start="46">
+<li><h3 id="静态代码块和非静态代码块的对比？"><a href="#静态代码块和非静态代码块的对比？" class="headerlink" title="静态代码块和非静态代码块的对比？"></a><font color=red>静态代码块和非静态代码块的对比？</font></h3></li>
+</ol>
+<details>
+  <summary>显示答案</summary>
+
+<blockquote>
+<p>都在 JVM 加载类时执行，并且都在构造方法前执行，都可以在类中定义多个，按顺序执行。一般会在代码块中对 static 变量进行赋值。</p>
+<p>静态代码块在非静态代码块前执行，静态代码块只执行一次，之后不会再次执行（但是通过反射创建class对象会导致再次执行），非静态代码块每new一次类对象就会执行一次。</p>
+<p>非静态代码块可以在普通方法中定义，而静态代码块不可以。</p>
+<p>如果一些变量或者对象想要在项目启动时得到执行，那么就需要使用静态代码块，这种代码块属于主动执行。而非静态代码块需要被调用才会被执行。</p>
+<p>非静态代码块是对所有对象进行统一的初始化，而构造函数是给对应的对象进行初始化，构造函数可以是多个，运行不同的构造函数建立不同的类对象。</p>
+</blockquote>
+</details>
+
+<ol start="47">
+<li><h3 id="深拷贝与浅拷贝的对比？"><a href="#深拷贝与浅拷贝的对比？" class="headerlink" title="深拷贝与浅拷贝的对比？"></a><font color=red>深拷贝与浅拷贝的对比？</font></h3></li>
+</ol>
+<details>
+  <summary>显示答案</summary>
+
+<blockquote>
+<p>浅拷贝就是只对对象的引用进行拷贝，即创建一个新的对象指向被拷贝对象所指向的地址。如果新对象改变地址的内容，不会改变基本数据类型的值，但是会改变引用类型的内容。</p>
+<p>深拷贝就是完全的拷贝，即开辟了新的内存空间，即同时拷贝了引用和被指向的对象。对被拷贝的对象进行了完全的拷贝操作，修改内容对原来的对象没有任何影响。</p>
+<p>标答：<br>浅拷贝，对基本数据类型进行值传递，对引用数据类型的变量进行引用传递的拷贝。<br>深拷贝，对基本数据类型进行值传递，对引用数据类型的变量则创建一个新的对象，复制其内容。</p>
+</blockquote>
+</details>
+
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>[JavaGuide]<a href="https://github.com/Snailclimb/JavaGuide" target="_blank" rel="noopener">https://github.com/Snailclimb/JavaGuide</a></p>
+<p>[为什么说Java中只有值传递]<a href="https://blog.csdn.net/bjweimengshu/article/details/79799485" target="_blank" rel="noopener">https://blog.csdn.net/bjweimengshu/article/details/79799485</a></p>
+
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Zihao Fu
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://zihaofu.github.io/2020/06/08/Java%E9%9D%A2%E8%AF%95%E9%A2%98%E8%87%AA%E6%B5%8B/" title="Java面试题自测">https://zihaofu.github.io/2020/06/08/Java面试题自测/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Java/" rel="tag"># Java</a>
+              <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" rel="tag"># 面试题</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/06/08/%E5%89%91%E6%8C%87offerPart3/" rel="prev" title="剑指Offer(11 - 15)">
+      <i class="fa fa-chevron-left"></i> 剑指Offer(11 - 15)
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/06/09/%E6%8B%BC%E5%A4%9A%E5%A4%9A%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%AE%9E%E4%B9%A0%E4%B8%80%E9%9D%A2/" rel="next" title="ƴ���ͻ�������ʵϰһ��">
+      ƴ���ͻ�������ʵϰһ�� <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java基础"><span class="nav-number">1.</span> <span class="nav-text">Java基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#面向对象和面向过程的区别"><span class="nav-number">1.1.</span> <span class="nav-text">面向对象和面向过程的区别?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#那么可以说面向过程语言的性能高于面向对象语言吗"><span class="nav-number">1.2.</span> <span class="nav-text">那么可以说面向过程语言的性能高于面向对象语言吗?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java-语言的特点"><span class="nav-number">1.3.</span> <span class="nav-text">Java 语言的特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JVM-JDK-JRE最详细通俗的解答"><span class="nav-number">1.4.</span> <span class="nav-text">JVM, JDK, JRE最详细通俗的解答?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是字节码？源代码到运行的过程是怎样的？"><span class="nav-number">1.5.</span> <span class="nav-text">什么是字节码？源代码到运行的过程是怎样的？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#OpenJDK-和-OracleJDK-的区别？"><span class="nav-number">1.6.</span> <span class="nav-text">OpenJDK 和 OracleJDK 的区别？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java-和-C-的区别？"><span class="nav-number">1.7.</span> <span class="nav-text">Java 和 C++ 的区别？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么Java没有结束符的概念？"><span class="nav-number">1.8.</span> <span class="nav-text">为什么Java没有结束符的概念？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是Java的主类？应用程序和小程序的主类有什么不同？"><span class="nav-number">1.9.</span> <span class="nav-text">什么是Java的主类？应用程序和小程序的主类有什么不同？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java应用程序和小程序之间的差别是什么？"><span class="nav-number">1.10.</span> <span class="nav-text">Java应用程序和小程序之间的差别是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符型常量Character和字符串常量String的区别是什么？"><span class="nav-number">1.11.</span> <span class="nav-text">字符型常量Character和字符串常量String的区别是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java中各个基本类型的大小和包装类？"><span class="nav-number">1.12.</span> <span class="nav-text">Java中各个基本类型的大小和包装类？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#构造函数是否可以被重写override？"><span class="nav-number">1.13.</span> <span class="nav-text">构造函数是否可以被重写override？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重载和重写的区别是什么？"><span class="nav-number">1.14.</span> <span class="nav-text">重载和重写的区别是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java面向对象编程的三大特性是什么？"><span class="nav-number">1.15.</span> <span class="nav-text">Java面向对象编程的三大特性是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#String，StringBuffer，StringBuilder的区别是什么？String为什么是不可变的？"><span class="nav-number">1.16.</span> <span class="nav-text">String，StringBuffer，StringBuilder的区别是什么？String为什么是不可变的？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#String不可变的原因？"><span class="nav-number">1.17.</span> <span class="nav-text">String不可变的原因？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是自动装箱和拆箱？"><span class="nav-number">1.18.</span> <span class="nav-text">什么是自动装箱和拆箱？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是静态变量，使用静态变量修饰意味着什么？"><span class="nav-number">1.19.</span> <span class="nav-text">什么是静态变量，使用静态变量修饰意味着什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在一个静态方法中调用一个非静态方法为什么是非法的？"><span class="nav-number">1.20.</span> <span class="nav-text">在一个静态方法中调用一个非静态方法为什么是非法的？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在Java中定义一个不做事也无参数的构造方法的作用？"><span class="nav-number">1.21.</span> <span class="nav-text">在Java中定义一个不做事也无参数的构造方法的作用？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#import-java和javax有什么区别？"><span class="nav-number">1.22.</span> <span class="nav-text">import java和javax有什么区别？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#抽象和接口的区别是什么？"><span class="nav-number">1.23.</span> <span class="nav-text">抽象和接口的区别是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#成员变量和局部变量的区别是什么？"><span class="nav-number">1.24.</span> <span class="nav-text">成员变量和局部变量的区别是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建一个对象使用什么关键字？对象实例和对象引用有什么不同？"><span class="nav-number">1.25.</span> <span class="nav-text">创建一个对象使用什么关键字？对象实例和对象引用有什么不同？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是方法的返回值？返回值在类的方法里的作用是什么？"><span class="nav-number">1.26.</span> <span class="nav-text">什么是方法的返回值？返回值在类的方法里的作用是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一个类的构造方法的作用是什么？如果一个类没有声明构造方法，这个程序可以正确执行吗？为什么？"><span class="nav-number">1.27.</span> <span class="nav-text">一个类的构造方法的作用是什么？如果一个类没有声明构造方法，这个程序可以正确执行吗？为什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#构造方法中有哪些特性？"><span class="nav-number">1.28.</span> <span class="nav-text">构造方法中有哪些特性？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#静态方法和实例方法有什么不同？"><span class="nav-number">1.29.</span> <span class="nav-text">静态方法和实例方法有什么不同？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对象的相等与执行他们的引用相等有什么不同？"><span class="nav-number">1.30.</span> <span class="nav-text">对象的相等与执行他们的引用相等有什么不同？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在调用子类的构造方法前会先调用父类没有参数的构造方法，其目的是？"><span class="nav-number">1.31.</span> <span class="nav-text">在调用子类的构造方法前会先调用父类没有参数的构造方法，其目的是？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#与equals的区别？"><span class="nav-number">1.32.</span> <span class="nav-text">&#x3D;&#x3D;与equals的区别？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hashCode与equals的作用？"><span class="nav-number">1.33.</span> <span class="nav-text">hashCode与equals的作用？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么Java中只有值传递？"><span class="nav-number">1.34.</span> <span class="nav-text">为什么Java中只有值传递？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#简述线程，程序，进程的基本概念。它们之间的关系是什么？"><span class="nav-number">1.35.</span> <span class="nav-text">简述线程，程序，进程的基本概念。它们之间的关系是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#线程有哪些基本状态？"><span class="nav-number">1.36.</span> <span class="nav-text">线程有哪些基本状态？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关于final关键字的一些总结？"><span class="nav-number">1.37.</span> <span class="nav-text">关于final关键字的一些总结？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java中的异常处理？"><span class="nav-number">1.38.</span> <span class="nav-text">Java中的异常处理？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Throwable类的常用方法？"><span class="nav-number">1.39.</span> <span class="nav-text">Throwable类的常用方法？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#异常处理总结"><span class="nav-number">1.40.</span> <span class="nav-text">异常处理总结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java序列化中如果有字段不想要序列化怎么办？"><span class="nav-number">1.41.</span> <span class="nav-text">Java序列化中如果有字段不想要序列化怎么办？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取键盘输入的两种方法？"><span class="nav-number">1.42.</span> <span class="nav-text">获取键盘输入的两种方法？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java中IO流可被分为几种？"><span class="nav-number">1.43.</span> <span class="nav-text">Java中IO流可被分为几种？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#既然有了字节流，为什么还需要字符流呢？"><span class="nav-number">1.44.</span> <span class="nav-text">既然有了字节流，为什么还需要字符流呢？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BIO，NIO，AIO有什么区别？"><span class="nav-number">1.45.</span> <span class="nav-text">BIO，NIO，AIO有什么区别？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常见关键字有哪些？"><span class="nav-number">1.46.</span> <span class="nav-text">常见关键字有哪些？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#静态方法和非静态方法（实例方法）的对比？"><span class="nav-number">1.47.</span> <span class="nav-text">静态方法和非静态方法（实例方法）的对比？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#静态代码块和非静态代码块的对比？"><span class="nav-number">1.48.</span> <span class="nav-text">静态代码块和非静态代码块的对比？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#深拷贝与浅拷贝的对比？"><span class="nav-number">1.49.</span> <span class="nav-text">深拷贝与浅拷贝的对比？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">2.</span> <span class="nav-text">参考</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Zihao Fu"
+      src="/uploads/while.gif">
+  <p class="site-author-name" itemprop="name">Zihao Fu</p>
+  <div class="site-description" itemprop="description">我们一路奋战，不是为了能改变世界，而是为了不让世界改变我们。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="mailto:fuzihao45@163.com" title="E-Mail → mailto:fuzihao45@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zihao Fu</span>
+</div>
+
+<span id="sitetime"></span>
+<script language=javascript>
+	function siteTime(){
+		window.setTimeout("siteTime()", 1000);
+		var seconds = 1000;
+		var minutes = seconds * 60;
+		var hours = minutes * 60;
+		var days = hours * 24;
+		var years = days * 365;
+		var today = new Date();
+		var todayYear = today.getFullYear();
+		var todayMonth = today.getMonth()+1;
+		var todayDate = today.getDate();
+		var todayHour = today.getHours();
+		var todayMinute = today.getMinutes();
+		var todaySecond = today.getSeconds();
+		/* 
+		Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+		year - 作为date对象的年份，为4位年份值
+		month - 0-11之间的整数，做为date对象的月份
+		day - 1-31之间的整数，做为date对象的天数
+		hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+		minutes - 0-59之间的整数，做为date对象的分钟数
+		seconds - 0-59之间的整数，做为date对象的秒数
+		microseconds - 0-999之间的整数，做为date对象的毫秒数
+        */
+		var t1 = Date.UTC(2020,05,30,00,00,00); //起始时间
+		var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+		var diff = t2-t1;
+		var diffYears = Math.floor(diff/years);
+		var diffDays = Math.floor((diff/days)-diffYears*365);
+		var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+		var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+		var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+		document.getElementById("sitetime").innerHTML=" 已运行"+/*diffYears+" 年 "+*/diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
+	}
+	siteTime();
+</script>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+  <script defer src="/lib/three/three.min.js"></script>
+    <script defer src="/lib/three/canvas_lines.min.js"></script>
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
