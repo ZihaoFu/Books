@@ -31,7 +31,7 @@
 <meta property="og:description" content="这篇文章主要用于总结剑指offer中第二十六至第三十题的解答。每道题都会给出多种比较容易想到的解答方法，作为自己准备笔试面试的一部分。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-06-16T16:00:00.000Z">
-<meta property="article:modified_time" content="2020-06-17T16:56:31.993Z">
+<meta property="article:modified_time" content="2020-06-17T17:04:28.182Z">
 <meta property="article:author" content="Zihao Fu">
 <meta property="article:tag" content="剑指Offer">
 <meta property="article:tag" content="Java">
@@ -229,7 +229,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-06-18 00:56:31" itemprop="dateModified" datetime="2020-06-18T00:56:31+08:00">2020-06-18</time>
+                <time title="修改时间：2020-06-18 01:04:28" itemprop="dateModified" datetime="2020-06-18T01:04:28+08:00">2020-06-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -269,7 +269,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    TreeNode pre = <span class="keyword">null</span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> TreeNode <span class="title">Convert</span><span class="params">(TreeNode pRootOfTree)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(pRootOfTree == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        Convert(pRootOfTree.right);</span><br><span class="line">        <span class="keyword">if</span>(pre != <span class="keyword">null</span>)&#123;</span><br><span class="line">            pRootOfTree.right = pre;</span><br><span class="line">            pre.left = pRootOfTree;</span><br><span class="line">        &#125;</span><br><span class="line">        pre = pRootOfTree;</span><br><span class="line">        Convert(pRootOfTree.left);</span><br><span class="line">        <span class="keyword">return</span> pre;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="字符串的排列"><a href="#字符串的排列" class="headerlink" title="字符串的排列"></a><a href="https://www.nowcoder.com/practice/fe6b651b66ae47d7acce78ffdd9a96c7?tpId=13&&tqId=11180&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking" target="_blank" rel="noopener">字符串的排列</a></h2><p>输入一个字符串，按字典序打印出该字符串中字符的所有排列。例如输入字符串abc，则打印出由字符a,b,c所能排列出来的所有字符串abc，acb，bac，bca，cab和cba。</p>
-<h2 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h2><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">输入一个字符串，长度不超过<span class="number">9</span>(可能有字符重复)，字符只包括大小写字母。</span><br></pre></td></tr></table></figure>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">输入一个字符串，长度不超过<span class="number">9</span>(可能有字符重复)，字符只包括大小写字母。</span><br></pre></td></tr></table></figure>
 
 <p>方法一，DFS。</p>
 <p>注意，字符有可能是重复的，所以需要去重操作。</p>
@@ -397,7 +397,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#二叉搜索树与双向链表"><span class="nav-number">1.</span> <span class="nav-text">二叉搜索树与双向链表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串的排列"><span class="nav-number">2.</span> <span class="nav-text">字符串的排列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#输入"><span class="nav-number">3.</span> <span class="nav-text">输入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组中出现次数超过一半的数字"><span class="nav-number">4.</span> <span class="nav-text">数组中出现次数超过一半的数字</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最小的K个数"><span class="nav-number">5.</span> <span class="nav-text">最小的K个数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#连续子数组的最大和"><span class="nav-number">6.</span> <span class="nav-text">连续子数组的最大和</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#二叉搜索树与双向链表"><span class="nav-number">1.</span> <span class="nav-text">二叉搜索树与双向链表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串的排列"><span class="nav-number">2.</span> <span class="nav-text">字符串的排列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组中出现次数超过一半的数字"><span class="nav-number">3.</span> <span class="nav-text">数组中出现次数超过一半的数字</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最小的K个数"><span class="nav-number">4.</span> <span class="nav-text">最小的K个数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#连续子数组的最大和"><span class="nav-number">5.</span> <span class="nav-text">连续子数组的最大和</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
