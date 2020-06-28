@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+<meta name="referrer" content="no-referrer" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/find-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/find-16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-center-atom.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"zihaofu.github.io","root":"/","scheme":"Gemini","version":"8.0.0-rc.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="计算机网络常见面试题整理，对答案进行了隐藏处理，可用于自测。 本处面试题来自于JavaGuide以及一些博客，在文末参考处添加了链接，可前往对应网站查看更多信息。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计算机网络面试题自测">
+<meta property="og:url" content="https://zihaofu.github.io/2020/06/19/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E9%9D%A2%E8%AF%95%E9%A2%98%E8%87%AA%E6%B5%8B/index.html">
+<meta property="og:site_name" content="不存在的博客">
+<meta property="og:description" content="计算机网络常见面试题整理，对答案进行了隐藏处理，可用于自测。 本处面试题来自于JavaGuide以及一些博客，在文末参考处添加了链接，可前往对应网站查看更多信息。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-06-18T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-06-20T02:29:36.881Z">
+<meta property="article:author" content="Zihao Fu">
+<meta property="article:tag" content="面试题">
+<meta property="article:tag" content="计算机网络">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://zihaofu.github.io/2020/06/19/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E9%9D%A2%E8%AF%95%E9%A2%98%E8%87%AA%E6%B5%8B/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>计算机网络面试题自测 | 不存在的博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+        <span class="toggle-line toggle-line-first"></span>
+        <span class="toggle-line toggle-line-middle"></span>
+        <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">不存在的博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">一个不存在的博客</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://zihaofu.github.io/2020/06/19/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E9%9D%A2%E8%AF%95%E9%A2%98%E8%87%AA%E6%B5%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/while.gif">
+      <meta itemprop="name" content="Zihao Fu">
+      <meta itemprop="description" content="我们一路奋战，不是为了能改变世界，而是为了不让世界改变我们。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="不存在的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          计算机网络面试题自测
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-06-19 00:00:00" itemprop="dateCreated datePublished" datetime="2020-06-19T00:00:00+08:00">2020-06-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-06-20 10:29:36" itemprop="dateModified" datetime="2020-06-20T10:29:36+08:00">2020-06-20</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">面试题</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>计算机网络常见面试题整理，对答案进行了隐藏处理，可用于自测。</p>
+<p>本处面试题来自于JavaGuide以及一些博客，在文末参考处添加了链接，可前往对应网站查看更多信息。</p>
+<a id="more"></a>
+
+<h2 id="计算机网络"><a href="#计算机网络" class="headerlink" title="计算机网络"></a>计算机网络</h2><ol>
+<li><h3 id="OSI的七层协议有什么层？TCP-IP的四层协议？五层协议？简单介绍一下各层作用以及拥有的协议？"><a href="#OSI的七层协议有什么层？TCP-IP的四层协议？五层协议？简单介绍一下各层作用以及拥有的协议？" class="headerlink" title="OSI的七层协议有什么层？TCP/IP的四层协议？五层协议？简单介绍一下各层作用以及拥有的协议？"></a><font color=red>OSI的七层协议有什么层？TCP/IP的四层协议？五层协议？简单介绍一下各层作用以及拥有的协议？</font></h3></li>
+</ol>
+<details>
+  <summary>显示答案</summary>
+
+<blockquote>
+<p>OSI的七层协议从上至下有：应用层，表示层，会话层，传输层，网络层，数据链路层，物理层。</p>
+<p>TCP/IP的四层协议从上至下有：应用层，传输层，网络层，网络接口层。</p>
+<p>五层协议从上至下有：应用层，传输层，网络层，数据链路层，物理层。</p>
+<p>应用层：将传输层传输过来的数据按照数据的类型分别进行渲染和显示，有HTTP协议，FTP协议等。<br>传输层：建立端口至端口的通信，指明数据应被哪个应用程序接收处理。有TCP协议，UDP协议等。<br>网络层：建立主机至主机的通信，在大量的计算机中找到指定计算机的位置。有IP协议。<br>数据链路层，将数据分组为数据包，分为多个帧，每个帧拥有head和data两个部分，head中持有一些说明数据，发送方，接收方的信息。有以太网协议。<br>物理层，在物理层面上在两台主机之间建立连接，传输电信号。</p>
+</blockquote>
+</details>
+
+<ol start="2">
+<li><h3 id="为什么有了MAC地址还需要IP地址？"><a href="#为什么有了MAC地址还需要IP地址？" class="headerlink" title="为什么有了MAC地址还需要IP地址？"></a>为什么有了MAC地址还需要IP地址？</h3></li>
+</ol>
+<details>
+  <summary>显示答案</summary>
+
+<blockquote>
+<p>MAC地址是主机的唯一标识，而通常无法直接获得。通过使用ARP协议将IP地址转换至MAC地址可以方便的进行数据传输。</p>
+<ol>
+<li>每台主机出厂时存在一个唯一的MAC地址，是基于设备制造商的。而IP地址的分配基于网络拓扑结构，用于保证路由选择方案。两者所代表的含义并不相同。</li>
+<li>使用IP地址更加方便数据的传输，数据包在网络节点之间的移动都是使用ARP协议将IP地址映射到MAC地址完成的。</li>
+</ol>
+</blockquote>
+</details>
+
+<ol start="3">
+<li><h3 id="ARP是地址解析协议，简单语言解释一下工作原理。"><a href="#ARP是地址解析协议，简单语言解释一下工作原理。" class="headerlink" title="ARP是地址解析协议，简单语言解释一下工作原理。"></a><font color=red>ARP是地址解析协议，简单语言解释一下工作原理。</font></h3></li>
+</ol>
+<details>
+  <summary>显示答案</summary>
+
+<blockquote>
+<ol>
+<li><p><strong>每个主机</strong>都会在自己的ARP缓冲区中建立<strong>一个ARP列表</strong>，以<strong>表示IP地址和MAC地址之间的对应关系</strong>。</p>
+</li>
+<li><p>当源主机要发送数据时，首先检查ARP列表中是否有对应IP地址的目的主机的MAC地址，如果有，则直接发送数据，如果没有，就向本网段的所有主机发送ARP数据包，该数据包包括的内容有：源主机 IP地址，源主机MAC地址，目的主机的IP 地址。（广播）</p>
+</li>
+<li><p>当本网络的所有主机收到该ARP数据包时，首先检查数据包中的IP地址是否是自己的IP地址，如果不是，则忽略该数据包，如果是，则首先从数据包中取出源主机的IP和MAC地址写入到自己的ARP列表中，如果已经存在，则覆盖，然后将自己的MAC地址写入ARP响应包中，告诉源主机自己是它想要找的MAC地址。（单播）</p>
+</li>
+<li><p>源主机收到ARP响应包后。将目的主机的IP和MAC地址写入ARP列表，并利用此信息发送数据。如果源主机一直没有收到ARP响应数据包，表示ARP查询失败。</p>
+</li>
+</ol>
+<p>广播发送ARP请求，单播发送ARP响应。</p>
+<p>每个主机有自己的ARP表用于记录IP地址与MAC地址的关系。发送方想要发送一个数据给一个IP地址的主机，先去自己的ARP表查找，找不到就向本网段的所有主机发送ARP数据包来获得目标MAC地址。目标主机收到数据包后，先在自己的ARP表中记录发送方的IP地址和MAC地址，然后返回自己的MAC地址，发送方主机记录下这个MAC地址和IP地址的关系，然后开始发送数据。</p>
+</blockquote>
+</details>
+
+<ol start="2">
+<li><h3 id="IP地址的分类？"><a href="#IP地址的分类？" class="headerlink" title="IP地址的分类？"></a>IP地址的分类？</h3></li>
+</ol>
+<details>
+  <summary>显示答案</summary>
+
+<blockquote>
+<p>IP地址被划分为 0 ~ 126/128 ~ 191/192 ~ 223/224 ~ 239/240 ~ 255这五类，A，B，C，D，E类。其中正常使用ABC类，D，E用作科研或者其他工作。客户机一般在局域网中相互间通信，一般采用自己配置的IP地址，与局域网中其他客户机通信。还可以采用DHCP协议自动获取IP。</p>
+</blockquote>
+</details>
+
+<ol start="4">
+<li><h3 id="TCP和UDP的区别是什么？"><a href="#TCP和UDP的区别是什么？" class="headerlink" title="TCP和UDP的区别是什么？"></a><font color=red>TCP和UDP的区别是什么？</font></h3></li>
+</ol>
+<details>
+  <summary>显示答案</summary>
+
+<blockquote>
+<p>TCP，传输控制协议，面向连接，使用全双工的可靠信道，提供可靠服务，即无差错，不丢失，不重复且按序抵达。拥有拥塞控制，流量控制，超时重发等可靠性检测手段。面向字节流，每条TCP连接只能是点到点的，一般用于传输对可靠性要求高的数据。</p>
+<p>UDP，用户数据报协议，无连接，使用不可靠信道，尽最大努力交付，不保证可靠交付。无可靠性检测手段。面向报文，支持一对一，一对多，多对一，多对多的交互通信，用于传输对可靠性要不高的数据。</p>
+<p>总结，由于TCP拥有各种保证可靠性的手段，所以其传输效率低于UDP。TCP协议适用于对效率要求相对低，但对准确性要求相对高的场景下。而UDP协议适用于对效率要求相对高，对准确性要求相对低的场景。</p>
+</blockquote>
+</details>
+
+<ol start="5">
+<li><h3 id="TCP与UDP有哪些协议和应用？"><a href="#TCP与UDP有哪些协议和应用？" class="headerlink" title="TCP与UDP有哪些协议和应用？"></a><font color=red>TCP与UDP有哪些协议和应用？</font></h3></li>
+</ol>
+<details>
+  <summary>显示答案</summary>
+
+<blockquote>
+<p>TCP有HTTP，FTP等协议。<br>UDP有DNS，DHCP等协议。<br>由于TCP和UDP的特性可以推出：<br>TCP：</p>
+<ol>
+<li>文件传输（FTP，HTTP对数据准确性要求高，速度可以相对慢）。</li>
+<li>邮件传输（POP，IMAP，SMTP对数据准确性要求高，非紧急应用）。</li>
+<li>远程登陆（TELNET，SSH对数据准确性有一定的要求，有连接的概念）。</li>
+</ol>
+<p>UDP：</p>
+<ol>
+<li>即时通信（QQ聊天，对数据准确性和丢包要求较低，但是速度必须快，会进行优化，使用TCP辅助来保证一定的可靠性）。</li>
+<li>在线视频（微信视频，网络视频，速度必须快，要求实时性以保证视频连续，但是偶尔会遗失一个图像帧，可接受）</li>
+<li>网络语音电话（语音数据包较小，需要高速发送，偶尔断音或者串音也不会有很大影响）</li>
+</ol>
+</blockquote>
+</details>
+
+<ol start="6">
+<li><h3 id="TCP协议如何来保证传输的可靠性"><a href="#TCP协议如何来保证传输的可靠性" class="headerlink" title="TCP协议如何来保证传输的可靠性"></a><font color=red>TCP协议如何来保证传输的可靠性</font></h3></li>
+</ol>
+<details>
+  <summary>显示答案</summary>
+
+<blockquote>
+<p>重传机制，回退N步协议，选择重传协议。<br>拥塞控制。<br>流量控制。</p>
+<p>回退N步协议，可以同时发送多个数据包，数据包按序接收，接收后，发送窗口会向后移动。如果某个数据包没有传到接受端，则所有已发送还未接收的数据包会被重传。<br>选择重传协议，回退N步会重传很多正常的数据包，而选择重传只重传丢失的数据包，其他不是按序的数据包先抵达接受端会被缓存，等到重传的数据包抵达再一起被接收。</p>
+</blockquote>
+</details>
+
+<ol start="7">
+<li><h3 id="拥塞控制和流量控制是什么？两者的区别？"><a href="#拥塞控制和流量控制是什么？两者的区别？" class="headerlink" title="拥塞控制和流量控制是什么？两者的区别？"></a><font color=red>拥塞控制和流量控制是什么？两者的区别？</font></h3></li>
+</ol>
+<details>
+  <summary>显示答案</summary>
+
+<blockquote>
+<p>拥塞控制是针对网络传输过程中可能遇到拥塞情况的处理机制，拥有慢启动，拥塞避免，快重传和快恢复几个过程。</p>
+<p>慢启动，主机传输数据时会从1个数据包的速度开始，每次增长两倍，以指数的增长速度快速增长。慢启动不是指速度增长的慢，而是指每次都是从1个数据包的传输开始。<br>拥塞避免，慢启动抵达阈值后，会被切换为拥塞避免，即从指数增长转变为线性增长，每次增长1个数据包，其目的是为了探测可能导致拥塞的最大值。<br>找到拥塞的最大限制值后，阈值会变为最大值的一半，然后重新从1开始重复慢启动和拥塞避免的过程。<br>如果某个数据包因为某些原因无法抵达目的主机，会通过使用快重传机制迅速发现和处理，而不用等待超时重传。<br>快重传和快恢复，一个数据包遗失，则目标主机会返回确认上一个数据包的报文，返回三次确认报文，则发送端主机可知此数据包丢失，就会进行快恢复机制，阈值会直接被指定为当前数据包发送量的一半，然后从阈值量开始进行线性增长。</p>
+<p>流量控制是针对发送方发送数据动态调整以适应接收方处理速度的限制。</p>
+<p>每次接收方接受数据返回确认信息时，会附带有接收方还可以处理的数据大小，发送方根据这个接受窗口动态的调整发送数据包的速率，如果接收窗口为0，则发送方会被阻塞。<br>发送方阻塞后会使用一个定时器计时，计时结束会发送一个探测数据包查看接收方是否可以重新接收数据，如果可以则启动发送方发送数据，否则重置定时器继续阻塞等待。</p>
+</blockquote>
+</details>
+
+<ol start="8">
+<li><h3 id="TCP的三次握手和四次挥手过程和状态变化？"><a href="#TCP的三次握手和四次挥手过程和状态变化？" class="headerlink" title="TCP的三次握手和四次挥手过程和状态变化？"></a><font color=red>TCP的三次握手和四次挥手过程和状态变化？</font></h3></li>
+</ol>
+<details>
+  <summary>显示答案</summary>
+
+<blockquote>
+<p>三次握手：</p>
+<ol>
+<li>客户端向服务端发送SYN报文请求连接，SYN（请求）报文会带有客户端的ISN（初始化序列号），客户端的状态会变为SYN_SENT。</li>
+<li>服务端接收到客户端发来的SYN报文后，会返回客户端一个SYN报文和一个ACK（确认）报文，其中SYN报文带有服务端的ISN，ACK报文会返回客户端ISN+1作为已接收报文的回应，服务端状态会变为SYN_RCVD状态。</li>
+<li>客户端接收到服务端发来的SYN+ACK报文后，会给服务端发送ACK报文，ACK报文带有服务端ISN+1作为响应，客户端状态会变为ESTABLISHED状态。</li>
+<li>服务端接收到ACK报文后，会进入ESTABLISHED状态，此时连接建立。</li>
+</ol>
+<p>四次挥手：</p>
+<ol>
+<li>客户端向服务端发送FIN（结束）报文，带有客户端ISN。客户端状态变为FIN_WAIT_1。</li>
+<li>服务端接收到FIN报文后，向客户端返回ACK报文，ACK报文带有客户端ISN+1作为回应，服务端状态变为CLOSE_WAIT状态，客户端变为FIN_WAIT_2状态。此时客户端无法向服务端发送数据，服务端还可以向客户端发送数据。</li>
+<li>服务端向客户端发送FIN报文，带有服务端ISN，代表此时服务端想要结束连接了。服务端进入LAST_ACK状态。</li>
+<li>客户端收到FIN报文后，返回一个ACK报文，带有服务端ISN+1作为响应，客户端进入TIME_WAIT状态。客户端会在等待一次报文往返的时间后进入CLOSED状态。</li>
+<li>服务端收到ACK报文后进入CLOSED状态。</li>
+</ol>
+</blockquote>
+</details>
+
+<ol start="9">
+<li><h3 id="为什么TCP链接需要三次握手，两次不可以么，为什么？"><a href="#为什么TCP链接需要三次握手，两次不可以么，为什么？" class="headerlink" title="为什么TCP链接需要三次握手，两次不可以么，为什么？"></a><font color=red>为什么TCP链接需要三次握手，两次不可以么，为什么？</font></h3></li>
+</ol>
+<details>
+  <summary>显示答案</summary>
+
+<blockquote>
+<p>如果客户端向服务端发送一个请求建立连接，而这个请求因为某个原因未抵达服务端，客户端会误认为遗失，重发一个请求报文，建立连接后，之前未抵达的请求报文抵达了服务端，则服务端会再次与客户端建立连接，这就导致了重复建立连接的问题。</p>
+<p>而且三次握手的理念就是客户端和服务端互相得到对方的序列号，如果没有第三次握手，服务端无法确定客户端是否知道服务端的序列号，就会导致无法建立可靠的传输。</p>
+</blockquote>
+</details>
+
+<ol start="10">
+<li><h3 id="为什么四次挥手中客户端发送ACK后不直接进入CLOSED状态？"><a href="#为什么四次挥手中客户端发送ACK后不直接进入CLOSED状态？" class="headerlink" title="为什么四次挥手中客户端发送ACK后不直接进入CLOSED状态？"></a><font color=red>为什么四次挥手中客户端发送ACK后不直接进入CLOSED状态？</font></h3></li>
+</ol>
+<details>
+  <summary>显示答案</summary>
+
+<blockquote>
+<p>因为客户端需要等待服务端完全关闭，如果第四次挥手的ACK报文发送后遇到特殊情况遗失，当客户端直接关闭时，服务端就无法得到这个ACK报文了就会一直处于LAST_ACK状态。而有这个等待后，如果服务端没有收到ACK报文就会重发FIN报文，再次请求，客户端会重新发送ACK报文并重置TIME_WAIT计时器。</p>
+<p>还可以确保网络中此次连接的无用数据从网络中完全消失，避免本次的数据包传输到下一次连接的服务端的问题。</p>
+</blockquote>
+</details>
+
+<ol start="11">
+<li><h3 id="播放视频应该使用TCP还是UDP？为什么？"><a href="#播放视频应该使用TCP还是UDP？为什么？" class="headerlink" title="播放视频应该使用TCP还是UDP？为什么？"></a>播放视频应该使用TCP还是UDP？为什么？</h3></li>
+</ol>
+<details>
+  <summary>显示答案</summary>
+
+<blockquote>
+<p>播放视频一般使用UDP，UDP对于网络通信的质量要求不高，适用于要求网络通讯速度可以尽量快的实时性应用，而TCP适用于对网络通讯质量有要求的可靠性应用。视频一般分为关键帧和普通帧，虽然UDP会出现丢帧，但仅仅是普通帧不会导致很大的损失，但拥有了高速率和实时性的特性。</p>
+</blockquote>
+</details>
+
+<ol start="12">
+<li><h3 id="HTTP是什么？"><a href="#HTTP是什么？" class="headerlink" title="HTTP是什么？"></a><font color=red>HTTP是什么？</font></h3></li>
+</ol>
+<details>
+  <summary>显示答案</summary>
+
+<blockquote>
+<p>计算机通过网络进行通信的规则，是一个基于请求和响应，无状态的，应用层的协议。</p>
+<p>HTTP有四个基于：</p>
+<ol>
+<li>请求和响应，客户端发送请求，服务端响应数据。</li>
+<li>无状态的，对事务处理无记忆能力，本次连接的各种状态断开连接后都会被遗忘，不会影响到下一次连接。</li>
+<li>处于应用层，需要配合TCP/IP使用。</li>
+<li>底层TCP/IP，HTTP使用TCP/IP作为其支撑运输的协议。</li>
+</ol>
+</blockquote>
+</details>
+
+<ol start="13">
+<li><h3 id="HTTP报文结构？"><a href="#HTTP报文结构？" class="headerlink" title="HTTP报文结构？"></a><font color=red>HTTP报文结构？</font></h3></li>
+</ol>
+<details>
+  <summary>显示答案</summary>
+
+<blockquote>
+<p>HTTP请求报文，四个部分组成：请求行，请求头，空行，请求数据。<br>请求行由请求方法字段，URL字段，HTTP协议版本组成，使用空格分隔。</p>
+<ol>
+<li>请求方法字段：GET，POST等。</li>
+<li>HTTP协议版本：HTTP 1.0（短连接），HTTP 1.1（长连接）</li>
+</ol>
+<p>请求头包括一系列信息，常见的有Host主机信息，Cookie，Connection，Range（指定范围，断点续传）等。<br>空行，用于提示请求头到此为止。<br>请求数据，GET请求此项为空，POST请求，此项为要提交的数据。</p>
+<p>HTTP响应报文，四部分组成：响应行，响应头，空行，响应体。<br>响应行由协议版本，状态码及其描述组成。<br>响应头用于描述服务器基本信息和对数据的描述，客户端可以根据这些信息了解如何处理发回的数据。<br>空行，用于提示响应头到此为止。<br>响应体，响应的消息体，纯数据就返回纯数据，请求的是HTML页面就返回HTML页面，JS就返回JS代码等等。</p>
+</blockquote>
+</details>
+
+<ol start="14">
+<li><h3 id="了解哪些响应码？"><a href="#了解哪些响应码？" class="headerlink" title="了解哪些响应码？"></a>了解哪些响应码？</h3></li>
+</ol>
+<details>
+  <summary>显示答案</summary>
+
+<blockquote>
+<p>1xx：服务器已接收客户端请求，正在处理，客户端可以继续发送请求。<br>2xx：服务器已成功接收客户端请求，并进行了处理。<br>3xx：服务器要求客户端重定向。<br>4xx：客户端的请求有非法内容。<br>5xx：服务端无法处理客户端请求，服务端出现异常。</p>
+<p>200：OK，客户端请求成功。<br>400：Bad Request，客户端请求有语法错误。<br>401：Unauthorized，请求未授权。<br>403：Forbidden，服务器拒绝提供服务。<br>404：Not Found，请求的资源不存在，输入错误的URL。<br>500：Internet Server Error，服务器出现不可预期的错误，无法完成客户端请求。<br>503：Server Unavailable，服务器当前无法处理客户端请求，一段时间后可能可以恢复正常。</p>
+</blockquote>
+</details>
+
+<ol start="15">
+<li><h3 id="Get和Post的区别？"><a href="#Get和Post的区别？" class="headerlink" title="Get和Post的区别？"></a>Get和Post的区别？</h3></li>
+</ol>
+<details>
+  <summary>显示答案</summary>
+
+<blockquote>
+<p>GET：客户端从服务器读取某个资源时使用GET，一般用于获取/查询资源信息。GET参数通过URL传递（写在了URL上），传递参数有长度限制，不可传递敏感信息。</p>
+<p>POST：客户端给服务器提供信息使用POST，POST会附带用户数据，一般用于更新资源信息，POST将请求参数封装在HTTP的请求数据中，可传输大量数据，传参方式比GET更安全。</p>
+<p>POST比GET方式的安全性要高，通过GET提交数据，用户名和密码将明文出现在URL上，因为一下几个原因GET方式安全性会比POST弱：</p>
+<ol>
+<li>登录页面有可能被浏览器缓存。</li>
+<li>其他人查看浏览器的历史纪录，那么别人就可 以拿到你的账号和密码了。</li>
+<li>当遇上跨站的攻击时，安全性的表现更差。</li>
+</ol>
+</blockquote>
+</details>
+
+<ol start="16">
+<li><h3 id="HTTP-1-0，HTTP-1-1，HTTP-2-0的区别？"><a href="#HTTP-1-0，HTTP-1-1，HTTP-2-0的区别？" class="headerlink" title="HTTP 1.0，HTTP 1.1，HTTP 2.0的区别？"></a>HTTP 1.0，HTTP 1.1，HTTP 2.0的区别？</h3></li>
+</ol>
+<details>
+  <summary>显示答案</summary>
+
+<blockquote>
+<p>HTTP 1.0与HTTP 1.1的区别：<br>HTTP 1.0默认使用短连接，HTTP 1.1默认使用长连接。<br>HTTP 1.1增加了更多请求头和响应头来改进和扩充HTTP 1.0的功能，比如身份认证，状态管理，Cache缓存等。</p>
+<p>HTTP 2.0与HTTP 1.x的区别：<br>新的二进制格式：HTTP 2.0采用二进制格式，实现方便且健壮，不同于HTTP 1.x的解析是基于文本。<br>多路复用：连接共享，每个请求都是用作连接共享机制的。<br>服务端推送：服务器主动向客户端推送消息。</p>
+</blockquote>
+</details>
+
+<ol start="17">
+<li><h3 id="HTTP和TCP的区别？"><a href="#HTTP和TCP的区别？" class="headerlink" title="HTTP和TCP的区别？"></a><font color=red>HTTP和TCP的区别？</font></h3></li>
+</ol>
+<details>
+  <summary>显示答案</summary>
+
+<blockquote>
+<p>TCP是传输层协议，定义数据传输和连接方式的规范。通过三次握手建立连接，四次挥手释放连接。</p>
+<p>HTTP是应用层协议，定义传输的数据内容的规范。HTTP使用请求-响应方式，基于TCP协议传输，默认端口是80。</p>
+</blockquote>
+</details>
+
+<ol start="18">
+<li><h3 id="HTTP和HTTPS的区别？"><a href="#HTTP和HTTPS的区别？" class="headerlink" title="HTTP和HTTPS的区别？"></a><font color=red>HTTP和HTTPS的区别？</font></h3></li>
+</ol>
+<details>
+  <summary>显示答案</summary>
+
+<blockquote>
+<p>HTTP，运行在TCP上，传输内容是明文，主端口是80。</p>
+<p>HTTPS，运行在SSL/TLS上，SSL/TLS运行在TCP上，传输内容是加密后的，端口是443。</p>
+</blockquote>
+</details>
+
+<ol start="19">
+<li><h3 id="什么是HTTP长连接和短连接？它们的优缺点和适用场景是什么？"><a href="#什么是HTTP长连接和短连接？它们的优缺点和适用场景是什么？" class="headerlink" title="什么是HTTP长连接和短连接？它们的优缺点和适用场景是什么？"></a><font color=red>什么是HTTP长连接和短连接？它们的优缺点和适用场景是什么？</font></h3></li>
+</ol>
+<details>
+  <summary>显示答案</summary>
+
+<blockquote>
+<p>HTTP短连接是指连接建立并且执行一次请求后就会断开，如果还有新的请求需要重新建立连接。在HTTP 1.0中是默认的连接方式。</p>
+<p>HTTP长连接是指连接建立并且执行一次请求后不会断开，如果还有新的请求可以重复使用这个连接通道。在HTTP 1.1中成为默认的连接方式。在响应头中加入Connection:keep_alive。</p>
+<p>keep_alive不会永久保持连接，有一个保持时间，可以在不同的服务器软件(Apache)中设定这个时间。想要实现长连接需要客户端和服务端都支持长连接。</p>
+<p>短连接优点：<br>服务器管理简单。<br>所有留存的连接都是有用的连接，不需要额外控制手段。</p>
+<p>短连接缺点：<br>如果客户端请求频繁，则会在TCP的建立和释放上浪费大量时间和带宽。</p>
+<p>长连接优点：<br>不需要重复建立和释放连接，开销小。</p>
+<p>长连接缺点：<br>一直不中断连接会导致随着客户端的连接越来越多，服务器最终会崩溃。</p>
+<p>短连接适用场景：并发量大且用户无需频繁操作的情况使用短链接，如web网站的HTTP服务一般会使用短连接。</p>
+<p>长连接适用场景：操作频繁，点对点的通讯，连接数不多的情况。比如数据库的连接。</p>
+</blockquote>
+</details>
+
+<ol start="20">
+<li><h3 id="HTTP协议和TCP-IP协议的关系？"><a href="#HTTP协议和TCP-IP协议的关系？" class="headerlink" title="HTTP协议和TCP/IP协议的关系？"></a><font color=red>HTTP协议和TCP/IP协议的关系？</font></h3></li>
+</ol>
+<details>
+  <summary>显示答案</summary>
+
+<blockquote>
+<p>HTTP属于应用层协议，在传输层使用TCP协议，在网络层使用IP协议。IP协议主要解决<strong>网络路由和寻址</strong>问题，TCP协议主要解决如何在IP层上<strong>可靠的传递数据包</strong>，使得在网络的另一端可以收到发送端发出的所有包，而且顺序和发送出去的顺序是一致的。TCP协议具有可靠，面向连接的特点。</p>
+</blockquote>
+</details>
+
+<ol start="21">
+<li><h3 id="HTTP协议无状态的理解？"><a href="#HTTP协议无状态的理解？" class="headerlink" title="HTTP协议无状态的理解？"></a><font color=red>HTTP协议无状态的理解？</font></h3></li>
+</ol>
+<details>
+  <summary>显示答案</summary>
+
+<blockquote>
+<p>无状态就是指协议对于事务处理没有记忆能力，服务器不知道客户端是什么状态。打开一个服务器上的网页与之前打开这个服务器上的网页没有任何联系。</p>
+</blockquote>
+</details>
+
+<ol start="22">
+<li><h3 id="HTTPS协议的具体过程？"><a href="#HTTPS协议的具体过程？" class="headerlink" title="HTTPS协议的具体过程？"></a><font color=red>HTTPS协议的具体过程？</font></h3></li>
+</ol>
+<details>
+  <summary>显示答案</summary>
+
+<blockquote>
+<ol>
+<li>客户端向服务器发出HTTPS请求。</li>
+<li>服务端接收到HTTPS请求后，向CA签发机构申请证书。对个人信息和服务器公钥进行Hash得到信息摘要，然后使用从CA获取的私钥对信息摘要进行加密，形成数字签名。服务器将个人信息，服务器公钥和数字签名打包发送给客户端。</li>
+<li>客户端接收到发来的数据后，使用CA公钥解析数字签名，得到信息摘要，将发来的个人信息和服务器公钥进行hash得到另一份信息摘要，对比两个摘要确认信息来源是否正确合法。</li>
+<li>确认合法后，客户端生成一个随机数，使用服务器公钥加密这个随机数，并发送给服务端。</li>
+<li>服务端使用服务器私钥解密得到随机数。使用随机数对需要发送的数据进行加密，传给客户端。</li>
+<li>客户端使用随机数解密，得到响应的数据。</li>
+</ol>
+</blockquote>
+</details>
+
+<ol start="23">
+<li><h3 id="如何验证证书的合法性"><a href="#如何验证证书的合法性" class="headerlink" title="如何验证证书的合法性?"></a><font color=red>如何验证证书的合法性?</font></h3></li>
+</ol>
+<details>
+  <summary>显示答案</summary>
+
+<blockquote>
+<ol>
+<li>可信性验证/合法性验证：验证证书来源（CA机构）的合法性。</li>
+<li>完整性验证：信息摘要的比较。</li>
+<li>有效性验证：证书的有效期的验证。</li>
+</ol>
+</blockquote>
+</details>
+
+<ol start="24">
+<li><h3 id="HTTP协议和Socket的区别是什么？"><a href="#HTTP协议和Socket的区别是什么？" class="headerlink" title="HTTP协议和Socket的区别是什么？"></a>HTTP协议和Socket的区别是什么？</h3></li>
+</ol>
+<details>
+  <summary>显示答案</summary>
+
+<blockquote>
+<p>HTTP是应用层协议，基于TCP协议，使用<strong>请求-响应</strong>方式建立连接，在请求是需要先建立连接且客户端需要先发出请求，可见服务器需要等待到客户端发送一次请求后才可以将数据传回给客户端。</p>
+<p>Socket，套接字是对TCP/IP协议的封装，是接口而非协议。创建Socket连接时可以指定传输层协议为TCP或UDP。Socket建立连接的三步骤：服务器监听 -&gt; 客户端请求 -&gt; 连接确认。可见服务器直接将数据传送给客户端。</p>
+</blockquote>
+</details>
+
+<ol start="25">
+<li><h3 id="地址栏输入URL会发生什么？"><a href="#地址栏输入URL会发生什么？" class="headerlink" title="地址栏输入URL会发生什么？"></a><font color=red>地址栏输入URL会发生什么？</font></h3></li>
+</ol>
+<details>
+  <summary>显示答案</summary>
+
+<blockquote>
+<ol>
+<li>根据URL在DNS服务器解析得到IP地址。从浏览器缓存，操作系统缓存，路由器缓存，本地域名服务器缓存，域名服务器缓存。</li>
+<li>获得IP地址后，使用TCP的三次握手建立连接。</li>
+<li>连接成功建立后，客户端向服务端发送HTTP GET请求，请求包含主机信息，用户代理（浏览器）信息，连接属性（keep_alive，Cookies）等。</li>
+<li>服务器接收到请求后，处理请求，生成响应头和具体的响应内容。发送给客户端。</li>
+<li>客户端接收到响应数据后，先解析响应头，里面有响应码，页面编码等信息。然后将响应内容根据数据类型渲染和展示到用户界面。</li>
+<li>客户端通过TCP四次挥手断开连接。</li>
+</ol>
+</blockquote>
+</details>
+
+<ol start="26">
+<li><h3 id="如果建立连接后突然出现故障怎么办？"><a href="#如果建立连接后突然出现故障怎么办？" class="headerlink" title="如果建立连接后突然出现故障怎么办？"></a><font color=red>如果建立连接后突然出现故障怎么办？</font></h3></li>
+</ol>
+<details>
+  <summary>显示答案</summary>
+
+<blockquote>
+<p>TCP有保活计时器，客户端如果出现故障，服务器不会一直等下去，会浪费资源。服务器每收到一次客户端请求就会复位这个计时器，计时器时间通常是2小时，如果2小时都未收到客户端的任何数据，服务器就会发送一个探测报文到客户端，每75秒发送一次，如果发10次探测报文都没有反应，就会任务客户端出现故障，就会关闭连接。</p>
+</blockquote>
+</details>
+
+<ol start="27">
+<li><h3 id="Cookie和Session的区别？"><a href="#Cookie和Session的区别？" class="headerlink" title="Cookie和Session的区别？"></a><font color=red>Cookie和Session的区别？</font></h3></li>
+</ol>
+<details>
+  <summary>显示答案</summary>
+
+<blockquote>
+<p>Cookie一般用于保存用户信息。其主要作用是：</p>
+<ol>
+<li>保存用户基本信息，下次自动写入。</li>
+<li>保持登陆，存放了token在Cookie中，下次登陆根据token值查找用户。</li>
+<li>登陆后访问网站其他页面无需再次登陆。</li>
+</ol>
+<p>Session通过服务端记录用户状态。比如购物车，想要添加商品时，系统并不知道是哪个用户操作的，因为HTTP无状态。而服务端给特定用户创建特定的Session后就可以标识这个用户并且跟踪这个用户了。</p>
+<p>Cookie保存在客户端，而Session保存在服务端。相对而言，Session的安全性更高。如果想要在Cookie中存储敏感信息，不要直接写入，而是先加密Cookie信息，使用时再在服务端解密。</p>
+</blockquote>
+</details>
+
+<ol start="28">
+<li><h3 id="从网络加载一个10M的图片，说下注意事项。"><a href="#从网络加载一个10M的图片，说下注意事项。" class="headerlink" title="从网络加载一个10M的图片，说下注意事项。"></a><font color=red>从网络加载一个10M的图片，说下注意事项。</font></h3></li>
+</ol>
+<details>
+  <summary>显示答案</summary>
+
+<blockquote>
+<p>分块加载处理，首先读取图像的格式信息，根据格式信息对图片进行分块，每次仅加载某一块区域的图像，使用LruCache来对图像的缓存进行限制。而查看全图时，可以对图像进行质量压缩。（猜测答案）</p>
+</blockquote>
+</details>
+
+
+<p>网络接口卡（网卡）的功能？<br>IO中同步与异步，阻塞与非阻塞区别<br>URI和URL的区别<br>GET请求中URL编码的意义<br>如何避免浏览器缓存<br>什么是分块传送。<br>谈谈SQL 注入<br>DDos 攻击<br>DDos攻击有那些预防方法？<br>什么是XSS 攻击</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>[JavaGuide]<a href="https://github.com/Snailclimb/JavaGuide" target="_blank" rel="noopener">https://github.com/Snailclimb/JavaGuide</a></p>
+<p>[帅地CSDN博客]<a href="https://blog.csdn.net/m0_37907797/article/details/105106732" target="_blank" rel="noopener">https://blog.csdn.net/m0_37907797/article/details/105106732</a></p>
+<p>[牛客网试题广场]<a href="https://www.nowcoder.com/questionCenter" target="_blank" rel="noopener">https://www.nowcoder.com/questionCenter</a></p>
+<p>[交换机、集线器与路由器，网桥，网关的介绍]<a href="https://blog.csdn.net/pcwl1206/article/details/83856741" target="_blank" rel="noopener">https://blog.csdn.net/pcwl1206/article/details/83856741</a></p>
+
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Zihao Fu
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://zihaofu.github.io/2020/06/19/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E9%9D%A2%E8%AF%95%E9%A2%98%E8%87%AA%E6%B5%8B/" title="计算机网络面试题自测">https://zihaofu.github.io/2020/06/19/计算机网络面试题自测/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" rel="tag"># 面试题</a>
+              <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag"># 计算机网络</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/06/18/%E5%89%91%E6%8C%87offerPart7/" rel="prev" title="剑指Offer(31 - 35)">
+      <i class="fa fa-chevron-left"></i> 剑指Offer(31 - 35)
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/06/19/Android%E9%9D%A2%E8%AF%95%E9%A2%98%E8%87%AA%E6%B5%8B/" rel="next" title="Android面试题自测">
+      Android面试题自测 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#计算机网络"><span class="nav-number">1.</span> <span class="nav-text">计算机网络</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#OSI的七层协议有什么层？TCP-IP的四层协议？五层协议？简单介绍一下各层作用以及拥有的协议？"><span class="nav-number">1.1.</span> <span class="nav-text">OSI的七层协议有什么层？TCP&#x2F;IP的四层协议？五层协议？简单介绍一下各层作用以及拥有的协议？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么有了MAC地址还需要IP地址？"><span class="nav-number">1.2.</span> <span class="nav-text">为什么有了MAC地址还需要IP地址？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ARP是地址解析协议，简单语言解释一下工作原理。"><span class="nav-number">1.3.</span> <span class="nav-text">ARP是地址解析协议，简单语言解释一下工作原理。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IP地址的分类？"><span class="nav-number">1.4.</span> <span class="nav-text">IP地址的分类？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TCP和UDP的区别是什么？"><span class="nav-number">1.5.</span> <span class="nav-text">TCP和UDP的区别是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TCP与UDP有哪些协议和应用？"><span class="nav-number">1.6.</span> <span class="nav-text">TCP与UDP有哪些协议和应用？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TCP协议如何来保证传输的可靠性"><span class="nav-number">1.7.</span> <span class="nav-text">TCP协议如何来保证传输的可靠性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#拥塞控制和流量控制是什么？两者的区别？"><span class="nav-number">1.8.</span> <span class="nav-text">拥塞控制和流量控制是什么？两者的区别？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TCP的三次握手和四次挥手过程和状态变化？"><span class="nav-number">1.9.</span> <span class="nav-text">TCP的三次握手和四次挥手过程和状态变化？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么TCP链接需要三次握手，两次不可以么，为什么？"><span class="nav-number">1.10.</span> <span class="nav-text">为什么TCP链接需要三次握手，两次不可以么，为什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么四次挥手中客户端发送ACK后不直接进入CLOSED状态？"><span class="nav-number">1.11.</span> <span class="nav-text">为什么四次挥手中客户端发送ACK后不直接进入CLOSED状态？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#播放视频应该使用TCP还是UDP？为什么？"><span class="nav-number">1.12.</span> <span class="nav-text">播放视频应该使用TCP还是UDP？为什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP是什么？"><span class="nav-number">1.13.</span> <span class="nav-text">HTTP是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP报文结构？"><span class="nav-number">1.14.</span> <span class="nav-text">HTTP报文结构？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#了解哪些响应码？"><span class="nav-number">1.15.</span> <span class="nav-text">了解哪些响应码？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Get和Post的区别？"><span class="nav-number">1.16.</span> <span class="nav-text">Get和Post的区别？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP-1-0，HTTP-1-1，HTTP-2-0的区别？"><span class="nav-number">1.17.</span> <span class="nav-text">HTTP 1.0，HTTP 1.1，HTTP 2.0的区别？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP和TCP的区别？"><span class="nav-number">1.18.</span> <span class="nav-text">HTTP和TCP的区别？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP和HTTPS的区别？"><span class="nav-number">1.19.</span> <span class="nav-text">HTTP和HTTPS的区别？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是HTTP长连接和短连接？它们的优缺点和适用场景是什么？"><span class="nav-number">1.20.</span> <span class="nav-text">什么是HTTP长连接和短连接？它们的优缺点和适用场景是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP协议和TCP-IP协议的关系？"><span class="nav-number">1.21.</span> <span class="nav-text">HTTP协议和TCP&#x2F;IP协议的关系？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP协议无状态的理解？"><span class="nav-number">1.22.</span> <span class="nav-text">HTTP协议无状态的理解？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTPS协议的具体过程？"><span class="nav-number">1.23.</span> <span class="nav-text">HTTPS协议的具体过程？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何验证证书的合法性"><span class="nav-number">1.24.</span> <span class="nav-text">如何验证证书的合法性?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP协议和Socket的区别是什么？"><span class="nav-number">1.25.</span> <span class="nav-text">HTTP协议和Socket的区别是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#地址栏输入URL会发生什么？"><span class="nav-number">1.26.</span> <span class="nav-text">地址栏输入URL会发生什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如果建立连接后突然出现故障怎么办？"><span class="nav-number">1.27.</span> <span class="nav-text">如果建立连接后突然出现故障怎么办？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Cookie和Session的区别？"><span class="nav-number">1.28.</span> <span class="nav-text">Cookie和Session的区别？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#从网络加载一个10M的图片，说下注意事项。"><span class="nav-number">1.29.</span> <span class="nav-text">从网络加载一个10M的图片，说下注意事项。</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">2.</span> <span class="nav-text">参考</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Zihao Fu"
+      src="/uploads/while.gif">
+  <p class="site-author-name" itemprop="name">Zihao Fu</p>
+  <div class="site-description" itemprop="description">我们一路奋战，不是为了能改变世界，而是为了不让世界改变我们。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">28</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="mailto:fuzihao45@163.com" title="E-Mail → mailto:fuzihao45@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zihao Fu</span>
+</div>
+
+<span id="sitetime"></span>
+<script language=javascript>
+	function siteTime(){
+		window.setTimeout("siteTime()", 1000);
+		var seconds = 1000;
+		var minutes = seconds * 60;
+		var hours = minutes * 60;
+		var days = hours * 24;
+		var years = days * 365;
+		var today = new Date();
+		var todayYear = today.getFullYear();
+		var todayMonth = today.getMonth()+1;
+		var todayDate = today.getDate();
+		var todayHour = today.getHours();
+		var todayMinute = today.getMinutes();
+		var todaySecond = today.getSeconds();
+		/* 
+		Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+		year - 作为date对象的年份，为4位年份值
+		month - 0-11之间的整数，做为date对象的月份
+		day - 1-31之间的整数，做为date对象的天数
+		hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+		minutes - 0-59之间的整数，做为date对象的分钟数
+		seconds - 0-59之间的整数，做为date对象的秒数
+		microseconds - 0-999之间的整数，做为date对象的毫秒数
+        */
+		var t1 = Date.UTC(2020,05,30,00,00,00); //起始时间
+		var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+		var diff = t2-t1;
+		var diffYears = Math.floor(diff/years);
+		var diffDays = Math.floor((diff/days)-diffYears*365);
+		var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+		var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+		var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+		document.getElementById("sitetime").innerHTML=" 已运行"+/*diffYears+" 年 "+*/diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
+	}
+	siteTime();
+</script>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+  <script defer src="/lib/three/three.min.js"></script>
+    <script defer src="/lib/three/canvas_lines.min.js"></script>
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+    
+
+  
+
+</body>
+</html>
